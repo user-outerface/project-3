@@ -1,0 +1,22 @@
+.nav-cust{
+    background: #3d3c3c;
+    color: rgb(230, 230, 230);
+    margin-bottom: 0;
+    margin-top: 0;
+    border-color: #3d3c3c;
+}
+
+.inactive{
+    color: #bebaba;
+}
+
+.inactive:hover{
+    border-color: #838181!important;
+    color: #aac8d1;
+}
+
+#active-cust{
+    background: #838181;
+    border-color: #838181;
+    color: #3d3c3c;
+}
