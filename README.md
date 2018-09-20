@@ -23,3 +23,15 @@ The `/utils` file folder has boiler plate code in `API.js`. Api's and front-end 
 For now, any files that are entirely commented out, or has `boiler` in it's name can be changed. These files have good references on working code for what they were originally meant for. We can change these files, or rewrite them completely as long as we keep the reference points for as long as we need.
 
 We should change the names of these files later, but for now, it's good to keep their current names to see what is most important to change in the backend.
+
+## NPM
+
+For installing the proper packages, go to the root for the project and type:
+
+`yarn install`
+
+Running this, yarn will install all the dependencies in the needed directories using instruction from the root `package.json`.
+
+Always use `yarn add`. Don't use `npm intall` or `npm i`. This will mess with the yarn.lock otherwise, and will make life a lot more interesting than it needs to be.
+
+Make sure you're in the proper directory for the installation of the needed packages. If it needs to be in the back end, make sure you are in the root directory. Otherwise if it's a front-end package, make sure you are in the `/client` directory before doing `yarn add`.
