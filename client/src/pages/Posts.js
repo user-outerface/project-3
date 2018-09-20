@@ -17,5 +17,5 @@ export class Posts extends Component {
                 <div>Goodbye World</div>
             </div>
         );
-    }
+    };
 };

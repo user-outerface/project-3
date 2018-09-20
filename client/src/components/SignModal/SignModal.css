@@ -3,10 +3,18 @@
     font: inherit;
     font-size: 100%;
 }
+/* The .modal fixes the unintended overflow on the sides. */
+.modal{
+    max-width: 100%;
+    max-height: 100%;
+}
 /*  Do not change the above ^^^^^^
 /* 
     The above is to reset the modal style.
     Style below this, don't change the upper portion;
     if you need the modal to inherit something, then
-    just give it a different id with the prop named "modId".
+    just give it a different id with the prop named "modId"
+===============================================================
 */
+
+/* =====Only Change Styles Below This Line===== */
