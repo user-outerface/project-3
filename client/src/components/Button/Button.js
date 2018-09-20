@@ -1,6 +1,6 @@
 import React from "react";
 
-export const Button = props => {
+const Button = props => {
     let defaultSwitch = ("btn btn-default col-4 m-2");
     if(props.className){
         defaultSwitch = props.className;

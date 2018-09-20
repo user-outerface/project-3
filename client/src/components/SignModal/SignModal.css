@@ -1,0 +1,12 @@
+.signs{
+    color: initial;
+    font: inherit;
+    font-size: 100%;
+}
+/*  Do not change the above ^^^^^^
+/* 
+    The above is to reset the modal style.
+    Style below this, don't change the upper portion;
+    if you need the modal to inherit something, then
+    just give it a different id with the prop named "modId".
+*/

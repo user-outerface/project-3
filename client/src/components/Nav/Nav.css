@@ -4,6 +4,12 @@
     margin-bottom: 0;
     margin-top: 0;
     border-color: #3d3c3c;
+    height: 35px;
+}
+
+.li-item-cust, .li-item-cust * {
+    height: 35px;
+    font-size: 0.9em;
 }
 
 .inactive{
@@ -19,4 +25,16 @@
     background: #838181;
     border-color: #838181;
     color: #3d3c3c;
+}
+
+.logging-logger{
+    color: rgb(111, 141, 180)!important;
+}
+
+.logging-logger:hover{
+    border-bottom: 1px solid;
+    cursor: pointer;
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
+    -webkit-transition: text-shadow 2s;
+    transition: text-shadow 2s;
 }

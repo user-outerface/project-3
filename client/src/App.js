@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Nav from "./components/Nav"
+import { Main, Posts} from "./pages"
 import './App.css';
 
 //We may have to overhaul some components and def the pages,
@@ -13,14 +14,11 @@ class App extends Component {
       <Router>
         <div className="App">
           <Nav />
-          <header className="App-header">
-            <h1 className="App-title">Welcome to React</h1>
-          </header>
-          {/* <Switch>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/saved" component={Saved} />
-            <Route component={Home} />
-          </Switch> */}
+          <Switch>
+            <Route exact path="/" component={Main} />
+            <Route exact path="/posts" component={Posts} />
+            <Route component={Main} />
+          </Switch>
         </div>
       </Router>
     );
