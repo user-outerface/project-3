@@ -17,3 +17,5 @@ For the most part, this component needs minimal editing unless you are working o
 ## Backend
 
 For now, any files that are entirely commented out, or has `boiler` in it's name can be changed. These files have good references on working code for what they were originally meant for. We can change these files, or rewrite them completely as long as we keep the reference points for as long as we need.
+
+We should change the names of these files later, but for now, it's good to keep their current names to see what is most important to change in the backend.
