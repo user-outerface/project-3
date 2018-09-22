@@ -7,7 +7,7 @@ export const Carded = props => {
         pubArt = props.published;
     };
     return(
-    <section className="card mt-3 col-8 mx-auto" {...props}>
+    <section className="card mt-3 col-8 mx-auto text-left" {...props}>
         {props.id ? (<div className="card-header">
             {props.cardname}
             {pubArt ? (<div className="published">Published: {pubArt}</div>) : null}

@@ -36,7 +36,7 @@ const Nav = props => {
                 </Link>
                 </li>
                 <li className="ml-auto mr-1 d-flex align-items-center">
-                    {props.login ? <DropAc /> : (
+                    {1 === 1 ? <DropAc /> : (
                         <div>
                             <a className="logging-logger" data-toggle="modal" data-target="#modalLogIn">
                                 Login
