@@ -35,3 +35,7 @@ Running this, yarn will install all the dependencies in the needed directories u
 Always use `yarn add`. Don't use `npm intall` or `npm i`. This will mess with the yarn.lock otherwise, and will make life a lot more interesting than it needs to be.
 
 Make sure you're in the proper directory for the installation of the needed packages. If it needs to be in the back end, make sure you are in the root directory. Otherwise if it's a front-end package, make sure you are in the `/client` directory before doing `yarn add`.
+
+# **Images**
+
+* abstract-art-artistic-1020315: Photo by rawpixel.com from Pexels 
