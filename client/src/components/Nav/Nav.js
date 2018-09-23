@@ -6,7 +6,7 @@ import AnchorTag from "../AnchorTag/AnchorTag";
 import "./Nav.css";
 
 //The Links in this component will not work
-const Nav = props => {
+export const Nav = props => {
     return(
         <div className="da-navs">
             <ul className="nav nav-tabs nav-cust">
@@ -54,18 +54,16 @@ const Nav = props => {
                             >
                                     Sign Up
                             </AnchorTag>
+
+                            <div className="mod-dump">
+                                <SignModal modId="modalLogIn" />
+                                <SignModal modId="modalSignUp" />
+                            </div>
                         </div>
                     )}
                 </li>
             </ul>
-            
-            <div className="mod-dump">
-                <SignModal modId="modalLogIn" />
-                <SignModal modId="modalSignUp" />
-            </div>
 
         </div>
     )
 };
-
-export default Nav;
