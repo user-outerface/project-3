@@ -14,8 +14,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <NavHead />
-          <BuildaNav />
           <Nav />
+          <BuildaNav />
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/posts" component={Posts} />
