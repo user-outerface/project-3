@@ -8,8 +8,8 @@ import "./Nav.css";
 //The Links in this component will not work
 export const Nav = props => {
     return(
-        <div className="da-navs">
-            <ul className="nav nav-tabs nav-cust">
+        <div className="da-navs my-1">
+            <ul className="nav nav-cust">
                 <li className="nav-item li-item-cust">
                     <Link
                         to="/"

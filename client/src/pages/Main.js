@@ -5,6 +5,7 @@ import Carded from "../components/Carded";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import Saved from "./Posts";
 // import API from "../utils/API";
+import "./pages.css";
 
 const testArray=[];
 const testArrayLen = 10;
@@ -31,9 +32,9 @@ export class Main extends Component {
     });
     return (
       <div className="Page">
-        <h1>Hello World!</h1>
+        <h3 className="my-1 text-white">Welcome!</h3>
 
-        <section className="bg-secondary">
+        <section className="bg-opaque">
           {tested}
         </section>
       </div>
