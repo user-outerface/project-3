@@ -6,7 +6,7 @@ export const AnchorTag = props => {
     let classext = props.classext;
     return(
         <div className={classext ? classext : ""} {...props}>
-            {props.hrefless === true ? (
+            {props.hrefless === "true" ? (
                 <a className={classes ? "self-align-center logging-logger " + classes : "logging-logger"}>
                     {props.children ? props.children : "link"}
                 </a>

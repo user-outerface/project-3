@@ -40,14 +40,14 @@ export const Nav = props => {
                     {props.login ? <DropAc /> : (
                         <div>
                             <AnchorTag 
-                                hrefless={true} 
+                                hrefless="true" 
                                 data-toggle="modal" 
                                 data-target="#modalLogIn"
                                 classext="d-inline"
                             >
                                     Login
                             </AnchorTag> or <AnchorTag 
-                                hrefless={true}     
+                                hrefless="true"     
                                 data-toggle="modal"     
                                 data-target="#modalSignUp"
                                 classext="d-inline"
