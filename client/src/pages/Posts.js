@@ -5,6 +5,7 @@ import Carded from "../components/Carded";
 // import InputFields from "../components/SearchForm/InputFields";
 // import Comms from "../components/inComms";
 // import API from "../utils/API";
+import "./pages.css";
 
 const testArray=[];
 const testArrayLen = 10;
@@ -19,14 +20,21 @@ export class Posts extends Component {
     };
     render(){
         const tested = [];
-        testArray.map(x => {
-            tested.push(<Carded cardname={x} children="short synopsis"/>);
-        });
+        testArray.map(x =>{
+            tested.push(<Carded 
+              key={testArray.indexOf(x)} 
+              postname={x + testArray.indexOf(x)} 
+              children="short synopsis"
+              // classext="rounded-0"
+              className="carded-opaque text-white rounded-0"
+            />);
+            return tested;
+          });
         return(
             <div className="Page">
-                <div>The [insert genre] page!</div>
+                <div className="my-1 text-white">The [insert genre] page!</div>
 
-                <section>
+                <section className="mb-3">
                     {tested}
                 </section>
             </div>

@@ -26,7 +26,8 @@ export class Main extends Component {
         key={testArray.indexOf(x)} 
         postname={x + testArray.indexOf(x)} 
         children="short synopsis"
-        classext="rounded-0"
+        // classext="rounded-0"
+        className="carded-opaque text-white rounded-0"
       />);
       return tested;
     });
@@ -34,7 +35,7 @@ export class Main extends Component {
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>
 
-        <section className="bg-opaque">
+        <section className="mb-3">
           {tested}
         </section>
       </div>
