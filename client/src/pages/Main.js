@@ -9,7 +9,7 @@ import Carded from "../components/Carded";
 const testArray=[];
 const testArrayLen = 10;
 for(let i = 0; i < testArrayLen; i++){
-  testArray.push("topic");
+  testArray.push("topic" + i);
 };
 
 export class Main extends Component {
@@ -21,13 +21,19 @@ export class Main extends Component {
   render() {
     const tested = [];
     testArray.map(x =>{
-      tested.push(<Carded cardname={x} children="short synopsis"/>);
+      tested.push(<Carded 
+        key={testArray.indexOf(x)} 
+        postname={x + testArray.indexOf(x)} 
+        children="short synopsis"
+        classext="rounded-0"
+      />);
+      return tested;
     });
     return (
       <div className="Page">
         <h1>Hello World!</h1>
 
-        <section>
+        <section className="bg-secondary">
           {tested}
         </section>
       </div>
