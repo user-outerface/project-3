@@ -1,4 +1,8 @@
 import React, { Component } from 'react';
+
+
+import "./pages.css";
+
 // import TextLay from '../components/SearchForm/TextLay';
 // import Button from "../components/Button/Button";
 // import Carded from "../components/Carded";
@@ -15,7 +19,7 @@ export class Main extends Component {
   render() {
     return (
       <div className="Page">
-        <h1>Hello World!</h1>
+        <h1 class="home-div">Anime Forum</h1>
       </div>
     );
   };
