@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Nav from "./components/Nav"
+import { Nav, NavHead, BuildaNav } from "./components/Nav";
 import { Main, Posts} from "./pages"
 import './App.css';
 
@@ -13,7 +13,9 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <NavHead />
           <Nav />
+          <BuildaNav />
           <Switch>
             <Route exact path="/" component={Main} />
             <Route exact path="/posts" component={Posts} />

@@ -1,5 +1,5 @@
 .nav-cust{
-    background: #3d3c3c;
+    background: #3d3c3cb6;
     color: rgb(230, 230, 230);
     margin-bottom: 0;
     margin-top: 0;
@@ -27,14 +27,6 @@
     color: #3d3c3c;
 }
 
-.logging-logger{
-    color: rgb(111, 141, 180)!important;
-}
-
-.logging-logger:hover{
-    border-bottom: 1px solid;
-    cursor: pointer;
-    text-shadow: 2px 2px 2px rgb(0, 0, 0);
-    -webkit-transition: text-shadow 2s;
-    transition: text-shadow 2s;
+.smol-txt{
+    font-size: 0.5em;
 }
