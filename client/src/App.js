@@ -9,11 +9,25 @@ import './App.css';
 //
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state={
+      gifs: [],
+      term: ''
+    };
+  };
+
+  handleTermChange = (event) => {
+    this.setState({
+      term: event.target.value
+    })
+  };
+
   render() {
     return (
       <Router>
         <div className="App">
-          <NavHead />
+          <NavHead onChange={this.handleTermChange} />
           <Nav />
           <BuildaNav />
           <Switch>
