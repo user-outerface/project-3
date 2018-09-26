@@ -10,7 +10,6 @@ module.exports = {
           .catch(err => res.status(422).json(err));
       },
       create: function(req, res){
-          req.body._artiId = mongoose.Types.ObjectId(req.body._artiId);
           db.Comments
             .create(req.body)
             .then(dbModel =>{
@@ -19,7 +18,7 @@ module.exports = {
       },
       removeMany: function(req, res){
         db.Comments
-            .deleteMany({"article": req.params.id})
+            .deleteMany({"post": req.params.id})
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
       },

@@ -1,47 +1,47 @@
-//this is good boiler. We can use this for reference for later
+// this is good boiler. We can use this for reference for later
 
-// import axios from "axios";
+import axios from "axios";
 
-// export default {
-//     searchArtics: (urlPass) =>{
-//         const {Topic, StartYear, EndYear} = urlPass;
-//         let startPass = StartYear;
-//         let endPass = EndYear;
-//         return (axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${nyArty}&q=${Topic}&begin_date=${startPass}0101&end_date=${endPass}1231`));
-//     },
+export default {
+    // searchArtics: (urlPass) =>{
+    //     const {Topic, StartYear, EndYear} = urlPass;
+    //     let startPass = StartYear;
+    //     let endPass = EndYear;
+    //     return (axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${nyArty}&q=${Topic}&begin_date=${startPass}0101&end_date=${endPass}1231`));
+    // },
 
-//     getArts: function(){
-//         return axios.get("/api/arti");
-//     },
+    getTopics: function(){
+        return axios.get("/api/topic");
+    },
 
-//     getArt: function(id){
-//         return axios.get("/api/arti/" + id);
-//     },
+    getTopic: function(id){
+        return axios.get("/api/topic/" + id);
+    },
 
-//     deleteArt: function(id){
-//         return axios.delete("/api/arti/" + id);
-//     },
+    deleteTopic: function(id){
+        return axios.delete("/api/topic/" + id);
+    },
 
-//     saveArt: function(artData){
-//         return axios.post("/api/arti", artData);
-//     },
+    saveTopic: function(topicData){
+        return axios.post("/api/topic", topicData);
+    },
 
-//     upArt: function(id, artData){
-//         return axios.put(("/api/arti/" + id), artData);
-//     },
+    upTopic: function(id, topicData){
+        return axios.put(("/api/topic/" + id), topicData);
+    },
 
-//     getComms: function(){
-//         return axios.get("/api/comm");
-//     },
+    getComms: function(){
+        return axios.get("/api/comm");
+    },
     
-//     saveComm: function(commData){
-//         return axios.post("/api/comm", commData);
-//     },
+    saveComm: function(commData){
+        return axios.post("/api/comm", commData);
+    },
 
-//     deleteComm: function(commId){
-//         return axios.delete("/api/comm/" + commId);
-//     },
-//     deleteManyComm: function(artiid){
-//         return axios.delete("/api/comm/many-del/" + artiid)
-//     }
-// };
+    deleteComm: function(commId){
+        return axios.delete("/api/comm/" + commId);
+    },
+    deleteManyComm: function(topicid){
+        return axios.delete("/api/comm/many-del/" + topicid)
+    }
+};
