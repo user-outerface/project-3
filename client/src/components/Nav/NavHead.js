@@ -11,9 +11,9 @@ export const NavHead = props => {
                 <li className="nav-item">
                     Icon/Logo goes Here
                 </li>
-                <li classname="gif-item">
+                <li className="gif-item">
                     <GifList gifs={props.gifs} />
-                    <SearchBar onTermChange={props.handleTermChange} />
+                    <SearchBar onChange={props.onChange} />
                 </li>
                 <li className="nav-item ml-auto">
                     Searchbar goes here

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Nav, NavHead, BuildaNav } from "./components/Nav";
 import { Main, Posts} from "./pages"
+import API from "./utils/API";
 import './App.css';
 
 //We may have to overhaul some components and def the pages,
@@ -18,16 +19,21 @@ class App extends Component {
   };
 
   handleTermChange = (event) => {
-    this.setState({
-      term: event.target.value
-    })
+    API.handleTermChange(event.target.value)
+      .then(res => {
+        this.setState({
+          gifs: [res]
+        })
+        // console.log(this.state.gifs);
+        // console.log(res.data.data[0].images.downsized.url);
+      });
   };
 
   render() {
     return (
       <Router>
         <div className="App">
-          <NavHead onChange={this.handleTermChange} />
+          <NavHead onChange={this.handleTermChange} gifs={this.state.gifs[0]} />
           <Nav />
           <BuildaNav />
           <Switch>
