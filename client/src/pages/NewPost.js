@@ -28,8 +28,17 @@ export class NewPost extends Component {
     const { target: { name, value } } = event;
     this.setState({
         [name]: value
-    })
+    });
     console.log(this.state);
+  };
+
+  postSubmit = () =>{
+    const {mainBody, postTitle} = this.state;
+    console.log(mainBody + "  hi  " + postTitle);
+    this.setState({
+      postTitle: "",
+      mainBody: ""
+    });
   };
 
   render() {
@@ -42,18 +51,22 @@ export class NewPost extends Component {
                 cardname="New Post" 
                 className="carded-opaque text-white text-left">
                     <TextLay headName="Title"
+                      hclext="ml-2"
                       name="postTitle"
                       value={this.state.postTitle}
                       onChange={this.postChange}
-                      classext="bg-opaque text" 
+                      classext="bg-opaque" 
                     placeholder="Post Title" />
-                    <textarea 
-                        headName="Main Body" 
-                        name="mainBody"
-                        onChange={this.postChange}
-                        className="bg-opaque form-control"
-                    placeHolder="Main Body" />
-                    <Button children="submit" />
+                    <TextLay
+                      textarea="true" 
+                      headName="Main Body" 
+                      hclext="ml-2"
+                      name="mainBody"
+                      value={this.state.mainBody}
+                      onChange={this.postChange}
+                      classext="bg-opaque"
+                    placeholder="Main Body" />
+                    <Button children="Submit" onClick={this.postSubmit} />
 
             </Carded>
         </section>
