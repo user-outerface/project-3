@@ -4,9 +4,6 @@ import GifItem from './GifItem';
 const GifList = (props) => {
     let gifItems;
     if(props.gifs){
-        // gifItems = props.gifs.map((image) => {
-        //     return <GifItem key={image.id} gif={image} />
-        // });
         gifItems = <GifItem gif={props.gifs} />
     };
 

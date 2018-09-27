@@ -24,8 +24,6 @@ class App extends Component {
         this.setState({
           gifs: [res]
         })
-        // console.log(this.state.gifs);
-        // console.log(res.data.data[0].images.downsized.url);
       });
   };
 
