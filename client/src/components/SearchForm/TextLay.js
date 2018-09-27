@@ -7,9 +7,11 @@ export const TextLay = props => {
             <h5 className="my-2">{props.headName}</h5>
             <TextIn 
                 id={props.headName.replace(/\s/g, '')}
+                name={props.name}
                 onChange={props.onChange} 
                 placeholder={props.placeholder} 
                 value={props.value}
+                classext={props.classext}
             />
         </section>
     );

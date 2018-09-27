@@ -18,6 +18,7 @@ export class Posts extends Component {
         super(props);
         this.state = {};
     };
+
     render(){
         const tested = [];
         testArray.map(x =>{

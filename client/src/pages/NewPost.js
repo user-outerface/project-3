@@ -14,10 +14,23 @@ for(let i = 0; i < testArrayLen; i++){
 };
 
 export class NewPost extends Component {
-//   constructor(props){
-//     super(props);
-//     this.state = {};
-//   };
+  constructor(props){
+    super(props);
+    this.state = {
+      postTitle: "",
+      mainBody: ""
+    };
+  };
+
+
+
+  postChange = (event) =>{
+    const { target: { name, value } } = event;
+    this.setState({
+        [name]: value
+    })
+    console.log(this.state);
+  };
 
   render() {
     return (
@@ -28,11 +41,17 @@ export class NewPost extends Component {
             <Carded id="new-post" 
                 cardname="New Post" 
                 className="carded-opaque text-white text-left">
-                    <TextLay headName="Title" 
+                    <TextLay headName="Title"
+                      name="postTitle"
+                      value={this.state.postTitle}
+                      onChange={this.postChange}
+                      classext="bg-opaque text" 
                     placeholder="Post Title" />
                     <textarea 
                         headName="Main Body" 
-                        className="form-control"
+                        name="mainBody"
+                        onChange={this.postChange}
+                        className="bg-opaque form-control"
                     placeHolder="Main Body" />
                     <Button children="submit" />
 
