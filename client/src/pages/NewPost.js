@@ -4,7 +4,7 @@ import Button from "../components/Button/Button";
 import Carded from "../components/Carded";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import Saved from "./Posts";
-// import API from "../utils/API";
+import API from "../utils/API";
 import "./pages.css";
 
 const testArray=[];
@@ -34,7 +34,12 @@ export class NewPost extends Component {
 
   postSubmit = () =>{
     const {mainBody, postTitle} = this.state;
-    console.log(mainBody + "  hi  " + postTitle);
+    // console.log(mainBody + "  hi  " + postTitle);
+    API.makePost({
+      title: postTitle,
+      body: mainBody
+    }).then(res => console.log("success " + res, res));
+
     this.setState({
       postTitle: "",
       mainBody: ""

@@ -10,6 +10,18 @@ export default {
     //     return (axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${nyArty}&q=${Topic}&begin_date=${startPass}0101&end_date=${endPass}1231`));
     // },
 
+    getPosts: function(){
+        return axios.get("/api/post");
+    },
+
+    getPost: function(id){
+        return axios.get("/api/post" + id);
+    },
+
+    makePost: function(postData){
+        return axios.post("/api/post", postData);
+    },
+
     getTopics: function(){
         return axios.get("/api/topic");
     },
