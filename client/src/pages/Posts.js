@@ -19,13 +19,6 @@ export class Posts extends Component {
         this.state = {};
     };
 
-    componentDidMount(){
-        API.getPosts()
-            .then(res => {
-                console.log(res);
-            });
-    };
-
     render(){
         const tested = [];
         testArray.map(x =>{

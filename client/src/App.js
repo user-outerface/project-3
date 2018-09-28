@@ -14,8 +14,32 @@ class App extends Component {
     super(props);
     this.state={
       gifs: [],
-      term: ''
+      term: '',
+      posts: []
     };
+  };
+
+  // componentDidUpdate(){
+  //     console.log("mounted");
+  //     this.getPosts();
+  // };
+
+  // componentDidMount(){
+  //   this.getPosts();
+  // };
+
+  getPosts = ()=>{
+      console.log("pre-hit");
+      API.getPosts()
+          .then(res => {
+              console.log(res);
+              console.log("db-hit");
+              this.setState({
+                posts: [res.data]
+              });
+          }).catch(err => {
+            console.log(err);
+          });
   };
 
   handleTermChange = (event) => {
@@ -35,8 +59,8 @@ class App extends Component {
           <Nav />
           <BuildaNav />
           <Switch>
-            <Route exact path="/" render={(props) =>  <Main dbHit="genres" />} />
-            <Route exact path="/posts" render={(props) =>  <Main dbHit="posts" />} />
+            <Route exact path="/" render={(props) =>  <Main />} />
+            <Route exact path="/posts" render={(props) =>  <Main populate={this.getPosts} dbHit={this.state.posts} />} />
             <Route exact path="/new-post" render={(props) => <NewPost /> } />
             <Route component={Main} />
           </Switch>

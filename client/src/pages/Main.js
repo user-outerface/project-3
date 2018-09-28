@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Carded from "../components/Carded";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import Saved from "./Posts";
-// import API from "../utils/API";
+import API from "../utils/API";
 import "./pages.css";
 
 const testArray=[];
@@ -19,8 +19,15 @@ export class Main extends Component {
     this.state = {};
   };
 
+  componentDidMount(){
+    this.props.populate();
+  };
+  
   render() {
     const tested = [];
+    let res = this.props.dbHit;
+    console.log("the rezzy res ", res);
+    console.log(this.props.dbHit);
     testArray.map(x =>{
       tested.push(<Carded 
         key={testArray.indexOf(x)} 
@@ -31,13 +38,25 @@ export class Main extends Component {
       />);
       return tested;
     });
-    console.log(this.props.dbHit);
+    // try{
+    //   if(res[0].data !== undefined){
+    //     console.log("hellurr", res[0].data);
+    //   }
+    // } catch (err){
+    //   console.log("oops");
+    // };
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome! {this.props.dbHit}</h3>
+        <h3 className="my-1 text-white">Welcome!</h3>
 
         <section className="mb-3">
-          {tested}
+          {/* {tested} */}
+          {res !== undefined ? res[0] && res[0].map(posts => {
+            return <Carded 
+              key={posts._id}
+              postname={posts.title}
+            children={posts.body} />
+          }) : null}
         </section>
       </div>
     );
