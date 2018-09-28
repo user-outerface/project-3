@@ -10,6 +10,10 @@ export default {
     //     return (axios.get(`https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=${nyArty}&q=${Topic}&begin_date=${startPass}0101&end_date=${endPass}1231`));
     // },
 
+    handleTermChange(term) {
+        return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&limit=1`);
+    },
+
     getPosts: function(){
         return axios.get("/api/post");
     },
