@@ -1,4 +1,4 @@
-//this is good boiler. We can use this for reference for later
+// this is good boiler. We can use this for reference for later
 
 import axios from "axios";
 
@@ -14,24 +14,36 @@ export default {
         return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&limit=1`);
     },
 
-    getArts: function(){
-        return axios.get("/api/arti");
+    getPosts: function(){
+        return axios.get("/api/post");
     },
 
-    getArt: function(id){
-        return axios.get("/api/arti/" + id);
+    getPost: function(id){
+        return axios.get("/api/post" + id);
     },
 
-    deleteArt: function(id){
-        return axios.delete("/api/arti/" + id);
+    makePost: function(postData){
+        return axios.post("/api/post", postData);
     },
 
-    saveArt: function(artData){
-        return axios.post("/api/arti", artData);
+    getTopics: function(){
+        return axios.get("/api/topic");
     },
 
-    upArt: function(id, artData){
-        return axios.put(("/api/arti/" + id), artData);
+    getTopic: function(id){
+        return axios.get("/api/topic/" + id);
+    },
+
+    deleteTopic: function(id){
+        return axios.delete("/api/topic/" + id);
+    },
+
+    saveTopic: function(topicData){
+        return axios.post("/api/topic", topicData);
+    },
+
+    upTopic: function(id, topicData){
+        return axios.put(("/api/topic/" + id), topicData);
     },
 
     getComms: function(){
@@ -45,7 +57,7 @@ export default {
     deleteComm: function(commId){
         return axios.delete("/api/comm/" + commId);
     },
-    deleteManyComm: function(artiid){
-        return axios.delete("/api/comm/many-del/" + artiid)
+    deleteManyComm: function(topicid){
+        return axios.delete("/api/comm/many-del/" + topicid)
     }
 };

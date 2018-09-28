@@ -1,4 +1,5 @@
 module.exports = {
-  Article: require("./boiler1"),
-  Comments: require("./boiler2")
+  Genre: require("./genre"),
+  Comments: require("./comment"),
+  Post: require("./post")
 };

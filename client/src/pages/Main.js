@@ -31,9 +31,10 @@ export class Main extends Component {
       />);
       return tested;
     });
+    console.log(this.props.dbHit);
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome!</h3>
+        <h3 className="my-1 text-white">Welcome! {this.props.dbHit}</h3>
 
         <section className="mb-3">
           {tested}

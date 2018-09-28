@@ -1,9 +1,11 @@
-// const router = require("express").Router();
-// const artiRoutes = require("./arti");
-// const commRoutes = require("./comm");
+const router = require("express").Router();
+const genreRoutes = require("./genre");
+const commRoutes = require("./comm");
+const postRoutes = require("./post");
 
-// // Article routes
-// router.use("/arti", artiRoutes);
-// router.use("/comm", commRoutes);
+// Article routes
+router.use("/genre", genreRoutes);
+router.use("/comm", commRoutes);
+router.use("/post", postRoutes);
 
-// module.exports = router;
+module.exports = router;

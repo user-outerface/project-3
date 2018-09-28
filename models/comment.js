@@ -12,7 +12,7 @@ const commentSchema = new Schema({
             "Please create a valid comment"
         ],
     },
-    article: String
+    post: String
 });
 
 const Comments = mongoose.model("Comments", commentSchema);

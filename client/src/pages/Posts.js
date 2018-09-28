@@ -4,7 +4,7 @@ import Carded from "../components/Carded";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import InputFields from "../components/SearchForm/InputFields";
 // import Comms from "../components/inComms";
-// import API from "../utils/API";
+import API from "../utils/API";
 import "./pages.css";
 
 const testArray=[];
@@ -18,6 +18,14 @@ export class Posts extends Component {
         super(props);
         this.state = {};
     };
+
+    componentDidMount(){
+        API.getPosts()
+            .then(res => {
+                console.log(res);
+            });
+    };
+
     render(){
         const tested = [];
         testArray.map(x =>{
