@@ -34,7 +34,7 @@ export class Main extends Component {
     console.log(this.props.dbHit);
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome! {this.props.dbHit}</h3>
+        <h3 className="my-1 ">Welcome to Anime Forum {this.props.dbHit}</h3>
 
         <section className="mb-3">
           {tested}

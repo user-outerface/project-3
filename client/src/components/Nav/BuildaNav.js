@@ -5,7 +5,7 @@ import "./Nav.css";
 
 export const BuildaNav = props => {
     return (
-        <div className="build-a-nav  my-1">
+        <div className="build-a-nav bot-nav  my-1">
             <ul className="nav">
                 <li className="nav-item">
                     Path/For/Pages/Goes/Here

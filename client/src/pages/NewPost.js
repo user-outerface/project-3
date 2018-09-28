@@ -49,7 +49,7 @@ export class NewPost extends Component {
   render() {
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome!</h3>
+        <h3 className="my-1">Welcome!</h3>
 
         <section className="mb-3">
             <Carded id="new-post" 
