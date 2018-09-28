@@ -1,10 +1,18 @@
-.nav-cust{
+/* .nav-cust{
     background: #3d3c3cb6;
     color: rgb(230, 230, 230);
     margin-bottom: 0;
     margin-top: 0;
     border-color: #3d3c3c;
     height: 35px;
+} */
+
+.nav {
+    background-color: #2cf6879c;
+    border-color: #838181;
+    border-radius: 5px;
+    padding: 6px;
+    margin: 14px;
 }
 
 .li-item-cust, .li-item-cust * {
