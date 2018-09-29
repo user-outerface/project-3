@@ -17,7 +17,31 @@ class App extends Component {
       term: '',
       posts: [],
       genres: [],
-      post: []
+      post: [],
+      path: []
+    };
+  };
+
+  componentDidMount(){
+    const pathPass = window.location.pathname.split("/");
+    console.log("first", pathPass, typeof pathPass);
+    this.setState({
+      path: pathPass
+    }, this.consoler);
+  };
+
+  consoler = () =>{
+    console.log("consoler", this.state.path)
+  }
+
+  componentDidUpdate(prevProps, prevState){
+    const buildPass = window.location.pathname.split("/");
+    if(prevState.path.join() !== buildPass.join()){
+      console.log("not same", buildPass)
+      console.log("statterrr", prevState.path);
+      this.setState({
+        path: buildPass
+      })
     };
   };
 
@@ -96,7 +120,7 @@ class App extends Component {
         <div className="App">
           <NavHead onChange={this.handleTermChange} gifs={this.state.gifs[0]} />
           <Nav />
-          <BuildaNav />
+          <BuildaNav pather={this.state.path} />
           <Switch>
             <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
             <Route 
