@@ -73,7 +73,13 @@
 
 .text-in{
     position: relative;
-
-    
 }
 
+.search-input {
+    border-radius: 20px;
+}
+
+.search-btn{
+    border-radius: 20px;
+    padding: -10px;
+}

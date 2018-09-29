@@ -5,6 +5,7 @@ import GifList from '../Giffy/GifList';
 import SearchBar from '../Giffy/SearchBar';
 import Button from '../Button/Button';
 import TextIn from '../SearchForm/TextIn';
+import './Nav.css';
 
 export const NavHead = props => {
     return(
@@ -21,11 +22,11 @@ export const NavHead = props => {
                  
                 </li>
                 <li class="search-button">
-                    <Button onClick={props.sExecute} className="btn">ClickMe!</Button>
+                    <Button onClick={props.sExecute} className="search-btn">ClickMe!</Button>
                     {/* <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} classext="bg-red" /> */}
                 </li>
                 <li class="text-in"> 
-                    <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} classext="bg-red" />
+                    <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} className="search-input" />
                 </li>
                 
             </ul>

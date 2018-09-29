@@ -15,3 +15,7 @@ body{
     color: rgb(216, 234, 240);
 }
 
+.btn {
+  border-radius: 20px;
+  padding: -10px;
+}
