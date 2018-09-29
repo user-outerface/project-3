@@ -11,6 +11,9 @@ router.route("/")
 router.route("/some/:genSwitch")
   .get(postController.findSome);
 
+router.route("/one/:id")
+  .get(postController.findOne);
+
 // Matches with "/api/post/:id"
 // router
 //   .route("/:id")

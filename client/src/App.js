@@ -16,18 +16,21 @@ class App extends Component {
       gifs: [],
       term: '',
       posts: [],
-      genres: []
+      genres: [],
+      post: []
     };
   };
 
-  // componentDidUpdate(){
-  //     console.log("mounted");
-  //     this.getPosts();
-  // };
-
-  // componentDidMount(){
-  //   this.getPosts();
-  // };
+  getPost = (postQuer) =>{
+    // const specPost = window.location.pathname.split("/");
+    // let specPost = null;
+    API.getPost(postQuer)
+      .then(res => {
+        this.setState({
+          post: res.data
+        })
+      });
+  }
 
   getPosts = () =>{
       const winPass = window.location.pathname.split("/");
@@ -81,6 +84,13 @@ class App extends Component {
   };
 
   render() {
+    const postPass = window.location.pathname.split("/");
+    let postSwitch = null;
+    for(let i = 0; i < postPass.length; i++){
+      if(postPass[i].includes("tpm&n=")){
+        postSwitch = postPass[i].substr(postPass[i].indexOf("=") + 1);
+      };
+    };
     return (
       <Router>
         <div className="App">
@@ -88,8 +98,23 @@ class App extends Component {
           <Nav />
           <BuildaNav />
           <Switch>
-            <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" />} />
-            <Route path="/posts/" render={(props) =>  <Main populate={this.getPosts} dbHit={this.state.posts} hitType="posts" />} />
+            <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
+            <Route 
+              path="/posts/" 
+              render={(props) =>{
+                if(postSwitch){
+                  return <Main 
+                    secondPopulate={() => this.getPost(postSwitch)} 
+                    dbHit={this.state.post} 
+                  hitType="single-lady" />
+                } else {
+                  return <Main 
+                    populate={this.getPosts} 
+                    dbHit={this.state.posts} 
+                    nonSpec
+                  hitType="posts" />
+                }
+            }} />
             <Route exact path="/new-post" render={(props) => <NewPost /> } />
             <Route component={Main} />
           </Switch>

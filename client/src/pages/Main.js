@@ -23,12 +23,18 @@ export class Main extends Component {
   componentDidMount(){
     if(this.props.populate){
       this.props.populate();
+    } else if (this.props.secondPopulate){
+      console.log("secondsss!")
+      this.props.secondPopulate();
+      console.log(this.props.dbHit)
     };
   };
 
   componentDidUpdate(prevProps){
     if(this.props.populate && prevProps.hitType !== this.props.hitType){
       this.props.populate();
+    } else if (this.props.secondPopulate && prevProps.hitType !== this.props.hitType){
+      this.props.secondPopulate();
     };
   };
 
@@ -51,12 +57,20 @@ export class Main extends Component {
         <h3 className="my-1 text-white">Welcome!</h3>
 
         <section className="mb-3">
-          {res !== undefined ? res[0] && res[0].map(posts => {
+          {((res !== undefined) && (this.props.nonSpec)) ? res[0] && res[0].map(posts => {
             return <Carded 
               key={posts._id}
               className="carded-opaque text-white text-left rounded-0"
-              postname={posts.title ? posts.title : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+              postname={posts.title ? <AnchorTag href={window.location + "/tpm&n=" + posts._id} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
             children={posts.body ? posts.body : null } />
+          }) : null}
+
+          {((res !== undefined) && (!this.props.nonSpec)) ? res && res.map(post => {
+            return <Carded 
+              key={post._id}
+              className="carded-opaque text-white text-left rounded-0"
+              postname={post.title}
+            children={post.body ? post.body : null } />
           }) : null}
         </section>
       </div>

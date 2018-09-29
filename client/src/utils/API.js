@@ -23,7 +23,7 @@ export default {
     },
 
     getPost: function(id){
-        return axios.get("/api/post/" + id);
+        return axios.get("/api/post/one/" + id);
     },
 
     makePost: function(postData){

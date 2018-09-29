@@ -19,6 +19,14 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
 
+    findOne: function(req, res){
+        req.params.id = mongoose.Types.ObjectId(req.params.id);
+        db.Post
+            .find({_id: req.params.id})
+            .then(dbModel => res.json(dbModel))
+            .catch(err => res.status(422).json(err));
+    },
+
     create: function(req, res){
         db.Post 
             .create(req.body)
