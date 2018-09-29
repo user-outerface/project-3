@@ -14,7 +14,8 @@ class App extends Component {
     super(props);
     this.state={
       gifs: [],
-      term: ''
+      term: '',
+      searchQ: ''
     };
   };
 
@@ -23,15 +24,38 @@ class App extends Component {
       .then(res => {
         this.setState({
           gifs: [res]
-        })
+        });
       });
   };
+
+  formPeeker = () => {
+    console.log(this.state.searchQ);
+    this.setState({
+      searchQ: ''
+    })
+  };
+
+  searchChange = (event) => {
+    const { target: { name, value } } = event;
+    console.log("hit search change", "[" + name + "isName", value)
+    this.setState({
+      [name]: value
+    });
+  };
+
+
 
   render() {
     return (
       <Router>
         <div className="App">
-          <NavHead onChange={this.handleTermChange} gifs={this.state.gifs[0]} />
+          <NavHead 
+            sChange={this.searchChange} 
+            sValue={this.state.searchQ} 
+            sExecute={this.formPeeker}
+            sName="searchQ"
+            onChange={this.handleTermChange} 
+          gifs={this.state.gifs[0]} />
           <Nav />
           <BuildaNav />
           <Switch>
