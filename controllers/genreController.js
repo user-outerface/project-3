@@ -6,7 +6,7 @@ module.exports = {
   findAll: function(req, res) {
     db.Genre
       .find(req.query)
-      .populate("post")
+      // .populate("post")
       .sort({ dateAdded: -1 })
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));

@@ -8,7 +8,10 @@ router.route("/")
   .get(postController.findAll)
   .post(postController.create);
 
-// Matches with "/api/genre/:id"
+router.route("/some/:genSwitch")
+  .get(postController.findSome);
+
+// Matches with "/api/post/:id"
 // router
 //   .route("/:id")
 //   .get(postController.findById)

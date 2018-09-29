@@ -6,6 +6,7 @@ import Carded from "../components/Carded";
 // import Saved from "./Posts";
 import API from "../utils/API";
 import "./pages.css";
+import { AnchorTag } from '../components/AnchorTag/AnchorTag';
 
 const testArray=[];
 const testArrayLen = 10;
@@ -20,9 +21,17 @@ export class Main extends Component {
   };
 
   componentDidMount(){
-    this.props.populate();
+    if(this.props.populate){
+      this.props.populate();
+    };
   };
-  
+
+  componentDidUpdate(prevProps){
+    if(this.props.populate && prevProps.hitType !== this.props.hitType){
+      this.props.populate();
+    };
+  };
+
   render() {
     const tested = [];
     let res = this.props.dbHit;
@@ -33,29 +42,21 @@ export class Main extends Component {
         key={testArray.indexOf(x)} 
         postname={x + testArray.indexOf(x)} 
         children="short synopsis"
-        // classext="rounded-0"
         className="carded-opaque text-white text-left rounded-0"
       />);
       return tested;
     });
-    // try{
-    //   if(res[0].data !== undefined){
-    //     console.log("hellurr", res[0].data);
-    //   }
-    // } catch (err){
-    //   console.log("oops");
-    // };
     return (
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>
 
         <section className="mb-3">
-          {/* {tested} */}
           {res !== undefined ? res[0] && res[0].map(posts => {
             return <Carded 
               key={posts._id}
-              postname={posts.title}
-            children={posts.body} />
+              className="carded-opaque text-white text-left rounded-0"
+              postname={posts.title ? posts.title : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+            children={posts.body ? posts.body : null } />
           }) : null}
         </section>
       </div>

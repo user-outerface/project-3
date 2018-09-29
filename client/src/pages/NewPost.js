@@ -18,7 +18,8 @@ export class NewPost extends Component {
     super(props);
     this.state = {
       postTitle: "",
-      mainBody: ""
+      mainBody: "",
+      genre: ""
     };
   };
 
@@ -33,16 +34,18 @@ export class NewPost extends Component {
   };
 
   postSubmit = () =>{
-    const {mainBody, postTitle} = this.state;
+    const {mainBody, postTitle, genre} = this.state;
     // console.log(mainBody + "  hi  " + postTitle);
     API.makePost({
       title: postTitle,
-      body: mainBody
+      body: mainBody,
+      genre: genre
     }).then(res => console.log("success " + res, res));
 
     this.setState({
       postTitle: "",
-      mainBody: ""
+      mainBody: "",
+      genre: ""
     });
   };
 
@@ -55,6 +58,13 @@ export class NewPost extends Component {
             <Carded id="new-post" 
                 cardname="New Post" 
                 className="carded-opaque text-white text-left">
+                    <TextLay headName="Genre"
+                      hclext="ml-2"
+                      name="genre"
+                      value={this.state.genre}
+                      onChange={this.postChange}
+                      classext="bg-opaque"
+                    placeholder="Genre" />
                     <TextLay headName="Title"
                       hclext="ml-2"
                       name="postTitle"

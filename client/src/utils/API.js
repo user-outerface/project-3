@@ -18,6 +18,10 @@ export default {
         return axios.get("/api/post");
     },
 
+    getSomePosts: function(genSwitch){
+        return axios.get("/api/post/some/" + genSwitch);
+    },
+
     getPost: function(id){
         return axios.get("/api/post/" + id);
     },
@@ -26,24 +30,24 @@ export default {
         return axios.post("/api/post", postData);
     },
 
-    getTopics: function(){
-        return axios.get("/api/topic");
+    getGenres: function(){
+        return axios.get("/api/genre");
     },
 
-    getTopic: function(id){
-        return axios.get("/api/topic/" + id);
+    getGenre: function(id){
+        return axios.get("/api/genre/" + id);
     },
 
-    deleteTopic: function(id){
-        return axios.delete("/api/topic/" + id);
+    deleteGenre: function(id){
+        return axios.delete("/api/genre/" + id);
     },
 
-    saveTopic: function(topicData){
-        return axios.post("/api/topic", topicData);
+    saveGenre: function(genreData){
+        return axios.post("/api/genre", genreData);
     },
 
-    upTopic: function(id, topicData){
-        return axios.put(("/api/topic/" + id), topicData);
+    upGenre: function(id, genreData){
+        return axios.put(("/api/genre/" + id), genreData);
     },
 
     getComms: function(){
@@ -57,7 +61,7 @@ export default {
     deleteComm: function(commId){
         return axios.delete("/api/comm/" + commId);
     },
-    deleteManyComm: function(topicid){
-        return axios.delete("/api/comm/many-del/" + topicid)
+    deleteManyComm: function(genreid){
+        return axios.delete("/api/comm/many-del/" + genreid)
     }
 };

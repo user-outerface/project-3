@@ -15,7 +15,8 @@ class App extends Component {
     this.state={
       gifs: [],
       term: '',
-      posts: []
+      posts: [],
+      genres: []
     };
   };
 
@@ -28,19 +29,47 @@ class App extends Component {
   //   this.getPosts();
   // };
 
-  getPosts = ()=>{
-      console.log("pre-hit");
-      API.getPosts()
+  getPosts = () =>{
+      const winPass = window.location.pathname.split("/");
+      let winSwitch = null;
+      for(let i = 0; i < winPass.length; i++){
+        if(winPass[i].includes("t&gq=")){
+          winSwitch = winPass[i].substr(winPass[i].indexOf("=") + 1);
+        };
+      };
+      if(winSwitch !== null){
+        API.getSomePosts(winSwitch)
           .then(res => {
-              console.log(res);
-              console.log("db-hit");
-              this.setState({
-                posts: [res.data]
-              });
-          }).catch(err => {
-            console.log(err);
-          });
+            console.log(res);
+            console.log("db-hit");
+            this.setState({
+              posts: [res.data]
+            });
+        }).catch(err => {
+          console.log(err);
+        });
+      } else {
+        API.getPosts()
+            .then(res => {
+                console.log(res);
+                console.log("db-hit");
+                this.setState({
+                  posts: [res.data]
+                });
+            }).catch(err => {
+              console.log(err);
+            });
+      };
   };
+
+  getGenres = () =>{
+    API.getGenres()
+      .then(res => {
+        this.setState({
+          genres: [res.data]
+        });
+      });
+  }
 
   handleTermChange = (event) => {
     API.handleTermChange(event.target.value)
@@ -59,8 +88,8 @@ class App extends Component {
           <Nav />
           <BuildaNav />
           <Switch>
-            <Route exact path="/" render={(props) =>  <Main />} />
-            <Route exact path="/posts" render={(props) =>  <Main populate={this.getPosts} dbHit={this.state.posts} />} />
+            <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" />} />
+            <Route path="/posts/" render={(props) =>  <Main populate={this.getPosts} dbHit={this.state.posts} hitType="posts" />} />
             <Route exact path="/new-post" render={(props) => <NewPost /> } />
             <Route component={Main} />
           </Switch>

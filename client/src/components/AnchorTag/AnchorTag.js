@@ -11,7 +11,7 @@ export const AnchorTag = props => {
                     {props.children ? props.children : "link"}
                 </a>
             ) : (
-            <a href={props.href} className={classes ? "self-align-center " + classes : ""} target="_blank">
+            <a href={props.href} className={classes ? "self-align-center " + classes : ""} target={props.noTar ? "_blank" : ""}>
                 {props.children ? props.children : "Link"}
             </a>)}
             
