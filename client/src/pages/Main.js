@@ -37,6 +37,7 @@ export class Main extends Component {
   };
 
   render() {
+    let res = this.props.dbHit;
     return (
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>
