@@ -35,8 +35,6 @@ class App extends Component {
   };
 
   getPost = (postQuer) =>{
-    // const specPost = window.location.pathname.split("/");
-    // let specPost = null;
     API.getPost(postQuer)
       .then(res => {
         this.setState({

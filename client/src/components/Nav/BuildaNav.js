@@ -12,7 +12,7 @@ export const BuildaNav = props => {
                     let newBuild;
                     let pathNamer;
                     switch(true){
-                        case props.pather.length === 2:
+                        case props.pather[1] === "":
                             return;
                         case i === props.pather.length - 1:
                             return;
@@ -20,10 +20,12 @@ export const BuildaNav = props => {
                             newBuild = props.pather.slice(0, i + 1).join("/");
                             break;
                         case props.pather[i].includes("t&gq="):
+                            newBuild = props.pather.slice(0, i + 1).join("/");
                             pathNamer = props.pather[i].substr(props.pather[i].indexOf("=") + 1);
                             break;
                         case props.pather[i] === "posts":
                             pathNamer = "All";
+                            newBuild = props.pather.slice(0, i + 1).join("/");
                             break;
                         case i === 0:
                             newBuild = "/";
