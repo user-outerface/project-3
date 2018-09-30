@@ -39,3 +39,14 @@ Make sure you're in the proper directory for the installation of the needed pack
 # **Images**
 
 * abstract-art-artistic-1020315: Photo by rawpixel.com from Pexels 
+
+# **To Do**
+
+* Convert /pages/Posts.js to a component that edits a post
+* implement put functionality with posts and comments
+* Put in Post redirect from the home page, specific genre page, and anywhere else. In the genres page and deeper, the genre is set automatically, but can be reassigned.
+* give confirmation of comment/post submittal
+* Implement login with google auth and custom login for the site.
+* Styling
+* Clean up post area (Make it look more forum...y, make it look more forumy)
+* Code cleanup, eg: get rid of console logs, redundant code, etc.

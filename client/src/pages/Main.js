@@ -24,9 +24,7 @@ export class Main extends Component {
     if(this.props.populate){
       this.props.populate();
     } else if (this.props.secondPopulate){
-      console.log("secondsss!")
       this.props.secondPopulate();
-      console.log(this.props.dbHit)
     };
   };
 
@@ -39,19 +37,6 @@ export class Main extends Component {
   };
 
   render() {
-    const tested = [];
-    let res = this.props.dbHit;
-    console.log("the rezzy res ", res);
-    console.log(this.props.dbHit);
-    testArray.map(x =>{
-      tested.push(<Carded 
-        key={testArray.indexOf(x)} 
-        postname={x + testArray.indexOf(x)} 
-        children="short synopsis"
-        className="carded-opaque text-white text-left rounded-0"
-      />);
-      return tested;
-    });
     return (
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>

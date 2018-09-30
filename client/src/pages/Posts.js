@@ -7,6 +7,8 @@ import Carded from "../components/Carded";
 import API from "../utils/API";
 import "./pages.css";
 
+//convert this component to an edit post component
+
 const testArray=[];
 const testArrayLen = 10;
 for(let i = 0; i < testArrayLen; i++){

@@ -1,6 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import AnchorTag from "../AnchorTag/AnchorTag";
 import Button from "../Button/Button";
 import "./Nav.css";
 

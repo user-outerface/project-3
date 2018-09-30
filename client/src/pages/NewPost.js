@@ -30,16 +30,17 @@ export class NewPost extends Component {
     this.setState({
         [name]: value
     });
-    console.log(this.state);
   };
 
   postSubmit = () =>{
     const {mainBody, postTitle, genre} = this.state;
-    // console.log(mainBody + "  hi  " + postTitle);
     API.makePost({
       title: postTitle,
       body: mainBody,
       genre: genre
+      //vv make a post submittal confirmation
+      //do things here
+      //more green for better visibility
     }).then(res => console.log("success " + res, res));
 
     this.setState({
