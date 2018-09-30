@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import AnchorTag from "../AnchorTag/AnchorTag";
+import Button from "../Button/Button";
 import "./Nav.css";
 
 export const BuildaNav = props => {
@@ -11,6 +12,7 @@ export const BuildaNav = props => {
                 {(props.pather.length !== 0) && props.pather.map((paParts, i) =>{
                     let newBuild;
                     let pathNamer;
+                    //maybe change the below to switch statement
                     if(i < props.pather.length){
                         newBuild = props.pather.slice(0, i + 1).join("/");    
                     };
@@ -30,7 +32,7 @@ export const BuildaNav = props => {
                     if(props.pather[i] === "posts"){
                         pathNamer = "All";
                     }
-                    return <li> <AnchorTag classext="ml-1 mr-1" children={pathNamer && pathNamer} href={newBuild === "" ? null : newBuild} /> </li>
+                    return <li> <Button className="btn btn-default ml-1 mr-1" children={pathNamer && pathNamer} onClick={props.pOnClick} attribsext={{"data-pathing": (newBuild === "" ? null : newBuild)}} /> </li>
                 })}
             </ul>
         </div> 

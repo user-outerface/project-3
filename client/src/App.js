@@ -107,6 +107,11 @@ class App extends Component {
       });
   };
 
+  changeLocs = (event) =>{
+    const {pathing} = event.target.dataset;
+    window.location = pathing;
+  };
+
   render() {
     const postPass = window.location.pathname.split("/");
     let postSwitch = null;
@@ -120,7 +125,7 @@ class App extends Component {
         <div className="App">
           <NavHead onChange={this.handleTermChange} gifs={this.state.gifs[0]} />
           <Nav />
-          <BuildaNav pather={this.state.path} />
+          <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
             <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
             <Route 
