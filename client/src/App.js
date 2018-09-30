@@ -5,10 +5,6 @@ import { Main, Posts, NewPost} from "./pages"
 import API from "./utils/API";
 import './App.css';
 
-//We may have to overhaul some components and def the pages,
-//But, this gives us a great starting point
-//
-
 class App extends Component {
   constructor(props){
     super(props);
