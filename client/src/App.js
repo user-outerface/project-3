@@ -24,21 +24,14 @@ class App extends Component {
 
   componentDidMount(){
     const pathPass = window.location.pathname.split("/");
-    console.log("first", pathPass, typeof pathPass);
     this.setState({
       path: pathPass
-    }, this.consoler);
+    });
   };
-
-  consoler = () =>{
-    console.log("consoler", this.state.path)
-  }
 
   componentDidUpdate(prevProps, prevState){
     const buildPass = window.location.pathname.split("/");
     if(prevState.path.join() !== buildPass.join()){
-      console.log("not same", buildPass)
-      console.log("statterrr", prevState.path);
       this.setState({
         path: buildPass
       })
@@ -67,8 +60,6 @@ class App extends Component {
       if(winSwitch !== null){
         API.getSomePosts(winSwitch)
           .then(res => {
-            console.log(res);
-            console.log("db-hit");
             this.setState({
               posts: [res.data]
             });
@@ -78,8 +69,6 @@ class App extends Component {
       } else {
         API.getPosts()
             .then(res => {
-                console.log(res);
-                console.log("db-hit");
                 this.setState({
                   posts: [res.data]
                 });
