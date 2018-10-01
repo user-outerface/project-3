@@ -53,6 +53,18 @@ module.exports = {
                 res.json(dbModel);
             })
             .catch(err => res.status(422).json(err));
+    },
+
+    delUpper: function(req, res){
+        req.body.id = mongoose.Types.ObjectId(req.body.id);
+        db.Post
+            .findOneAndUpdate(
+                {_id: req.body.id},
+                {body: req.body.body}
+            ).then(dbModel =>{
+                res.json(dbModel);
+            })
+            .catch(err => res.status(422).json(err));
     }
 
 };

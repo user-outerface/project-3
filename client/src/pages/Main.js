@@ -35,6 +35,13 @@ export class Main extends Component {
     };
   };
 
+  deleterPost = (nId) =>{
+    API.delUpper({
+      id: nId,
+      body: "[deleted]"
+    }).then(window.location.reload());
+  };
+
   render() {
     let res = this.props.dbHit;
     const postPass = window.location.pathname.split("/");
@@ -64,7 +71,10 @@ export class Main extends Component {
               key={post._id}
               className="carded-opaque text-white text-left rounded-0"
               postname={post.title}
-              extchildren={<AnchorTag href={"/edit-post/tbph&idn" + post._id} editable="true" />}
+              extchildren={<div>
+                <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />
+                <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />
+              </div>}
             children={post.body ? post.body : null } />
           }) : null}
 

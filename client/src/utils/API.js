@@ -33,6 +33,10 @@ export default {
     editPost: function(postData){
         return axios.put("/api/post", postData);
     },
+    //don't forget to scrub the user data too later
+    delUpper: function(postData){
+        return axios.put("/api/post/scrubbed", postData);
+    },
 
     getGenres: function(){
         return axios.get("/api/genre");
