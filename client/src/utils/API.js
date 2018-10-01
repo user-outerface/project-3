@@ -30,6 +30,10 @@ export default {
         return axios.post("/api/post", postData);
     },
 
+    editPost: function(postData){
+        return axios.put("/api/post", postData);
+    },
+
     getGenres: function(){
         return axios.get("/api/genre");
     },

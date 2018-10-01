@@ -6,7 +6,8 @@ const postController = require("../../controllers/postController");
 // Matches with "/api/post"
 router.route("/")
   .get(postController.findAll)
-  .post(postController.create);
+  .post(postController.create)
+  .put(postController.update);
 
 router.route("/some/:genSwitch")
   .get(postController.findSome);

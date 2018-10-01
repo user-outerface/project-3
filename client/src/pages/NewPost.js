@@ -2,16 +2,12 @@ import React, { Component } from 'react';
 import TextLay from '../components/SearchForm/TextLay';
 import Button from "../components/Button/Button";
 import Carded from "../components/Carded";
+import ContentLay from "../components/ContentLay/ContentLay";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import Saved from "./Posts";
+import SignModal from "../components/SignModal/SignModal";
 import API from "../utils/API";
 import "./pages.css";
-
-const testArray=[];
-const testArrayLen = 10;
-for(let i = 0; i < testArrayLen; i++){
-  testArray.push("topic" + i);
-};
 
 export class NewPost extends Component {
   constructor(props){
@@ -19,7 +15,8 @@ export class NewPost extends Component {
     this.state = {
       postTitle: "",
       mainBody: "",
-      genre: ""
+      genre: "",
+      patid: ""
     };
   };
 
@@ -36,6 +33,25 @@ export class NewPost extends Component {
     this.setState({
       genre: genreGiver
     });
+    if(this.props.edit){
+      const idGrab = window.location.pathname.split("/");
+      let idPass;
+      for(var i = 0; i < idGrab.length; i++){
+        if(idGrab[i].includes("tbph&idn")){
+          idPass = idGrab[i].substr(idGrab[i].indexOf("n") + 1);
+        };
+      };
+      console.log(idPass);
+      API.getPost(idPass).then(edP =>{
+        const {title, body, genre} = edP.data[0];
+        this.setState({
+          postTitle: title,
+          mainBody: body,
+          genre: genre,
+          patid: idPass
+        });
+      });
+    };
   };
 
   postChange = (event) =>{
@@ -54,14 +70,25 @@ export class NewPost extends Component {
       //vv make a post submittal confirmation
       //do things here
       //more green for better visibility
-    }).then(res => console.log("success " + res, res));
-
-    this.setState({
-      postTitle: "",
-      mainBody: "",
-      genre: ""
+    }).then(res => {
+      console.log("success " + res, res, res.data, res.data.genre)
+      const {genre, _id} = res.data;
+      window.location = `/posts/t&gq=${genre}/tpm&n=${_id}`;
     });
   };
+
+  postEdit = () =>{
+    const {mainBody, postTitle, genre, patid} = this.state;
+    API.editPost({
+      title: postTitle,
+      body: mainBody,
+      genre: genre,
+      id: patid
+    }).then(res => {
+      const {genre, _id} = res.data;
+      window.location = `/posts/t&gq=${genre}/tpm&n=${_id}`;
+    });
+  }
 
   
   cancelPost = () =>{
@@ -79,39 +106,22 @@ export class NewPost extends Component {
     return (
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>
-
-        <section className="mb-3">
-            <Carded id="new-post" 
-                cardname="New Post" 
-                className="carded-opaque text-white text-left">
-                    <TextLay headName="Genre"
-                      hclext="ml-2"
-                      name="genre"
-                      value={this.state.genre}
-                      onChange={this.postChange}
-                      classext="bg-opaque"
-                    placeholder="Genre" />
-                    <TextLay headName="Title"
-                      hclext="ml-2"
-                      name="postTitle"
-                      value={this.state.postTitle}
-                      onChange={this.postChange}
-                      classext="bg-opaque" 
-                    placeholder="Post Title" />
-                    <TextLay
-                      textarea="true" 
-                      headName="Main Body" 
-                      hclext="ml-2"
-                      name="mainBody"
-                      value={this.state.mainBody}
-                      onChange={this.postChange}
-                      classext="bg-opaque"
-                    placeholder="Main Body (expandable)" />
-                    <Button children="Submit" onClick={this.postSubmit} />
-                    <Button children="Cancel" onClick={this.cancelPost} />
-
-            </Carded>
-        </section>
+        {this.props.new ?
+          <ContentLay 
+            postChange={this.postChange}
+            postTitle={this.state.postTitle}
+            mainBody={this.state.mainBody}
+            postThings={this.postSubmit}
+            cancelPost={this.cancelPost}
+          genre={this.state.genre} /> 
+        : <ContentLay 
+            postChange={this.postChange}
+            postTitle={this.state.postTitle}
+            mainBody={this.state.mainBody}
+            postThings={this.postEdit}
+            cancelPost={this.cancelPost}
+          genre={this.state.genre} />
+        }
       </div>
     );
   };

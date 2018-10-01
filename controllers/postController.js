@@ -41,6 +41,19 @@ module.exports = {
                 res.json(dbModel)
             })
             .catch(err => res.status(422).json(err));
+    },
+
+    update: function(req, res){
+        req.body.id = mongoose.Types.ObjectId(req.body.id);
+        db.Post 
+            .findOneAndUpdate(
+                {_id: req.body.id},
+                {title: req.body.title, body: req.body.body, genre: req.body.genre}
+            ).then(dbModel => {
+                console.log("updated");
+                res.json(dbModel);
+            })
+            .catch(err => res.status(422).json(err));
     }
 
 };

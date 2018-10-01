@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 // import TextLay from '../components/SearchForm/TextLay';
-import Button from "../components/Button/Button";
+// import Button from "../components/Button/Button";
 import Carded from "../components/Carded";
-// import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import Saved from "./Posts";
 import API from "../utils/API";
 import "./pages.css";
@@ -19,23 +18,6 @@ export class Main extends Component {
     super(props);
     this.state = {};
   };
-
-  // genreWriter = () =>{
-  //   const genreTaker = window.location.pathname.split("/");
-  //   let genreGiver;
-  //   for(let i = 0; i < genreTaker.length; i++){
-  //     if(genreTaker[i].includes("t&gq=")){
-  //       genreGiver = genreTaker[i].substr(genreTaker[i].indexOf("=") + 1);
-  //       console.log(genreGiver);
-  //       return genreGiver;
-  //     } else {
-  //       genreGiver = "";
-  //       console.log(genreGiver);
-  //       return genreGiver;
-  //     };
-  //   };
-  //   return genreGiver;
-  // };
 
   componentDidMount(){
     if(this.props.populate){
@@ -56,12 +38,8 @@ export class Main extends Component {
   render() {
     let res = this.props.dbHit;
     const postPass = window.location.pathname.split("/");
-    let postSwitch = null;
     let genreGiver;
     for(let i = 0; i < postPass.length; i++){
-      if(postPass[i].includes("tpm&n=")){
-        postSwitch = postPass[i].substr(postPass[i].indexOf("=") + 1);
-      };
       if(postPass[i].includes("t&gq=")){
         genreGiver = postPass[i];
       } else if (genreGiver === undefined){
@@ -86,10 +64,11 @@ export class Main extends Component {
               key={post._id}
               className="carded-opaque text-white text-left rounded-0"
               postname={post.title}
+              extchildren={<AnchorTag href={"/edit-post/tbph&idn" + post._id} editable="true" />}
             children={post.body ? post.body : null } />
           }) : null}
 
-          <Button hrefless="true" onClick={(event) =>this.props.changeLocs(event)} attribsext={{"data-pathing": "/new-post/" + genreGiver}} children="New Post" />
+          <AnchorTag href={"/new-post/" + genreGiver} children="New Post" />
         </section>
       </div>
     );

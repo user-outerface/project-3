@@ -46,7 +46,7 @@ Make sure you're in the proper directory for the installation of the needed pack
 * implement put functionality with posts and comments
 * add markdown functionality with comments/posts
 * possible picture link or even any link shown on hover
-* Put in Post redirect from the home page, specific genre page, and anywhere else. In the genres page and deeper, the genre is set automatically, but can be reassigned.
+* put genre in url if coming from all
 * give confirmation of comment/post submittal
 * Implement login with google auth and custom login for the site.
 * Styling

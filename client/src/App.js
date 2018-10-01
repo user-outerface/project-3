@@ -110,19 +110,17 @@ class App extends Component {
           <Nav />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
-            <Route exact path="/" render={(props) =>  <Main changeLocs={this.changeLocs} populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
+            <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
             <Route 
               path="/posts/" 
               render={(props) =>{
                 if(postSwitch){
                   return <Main 
-                    changeLocs={this.changeLocs}
                     secondPopulate={() => this.getPost(postSwitch)} 
                     dbHit={this.state.post} 
                   hitType="single-lady" />
                 } else {
                   return <Main 
-                    changeLocs={this.changeLocs}
                     populate={this.getPosts} 
                     dbHit={this.state.posts} 
                     nonSpec
@@ -130,7 +128,7 @@ class App extends Component {
                 }
             }} />
             <Route path="/new-post" render={(props) => <NewPost new /> } />
-            <Route exact path="/edit-post" render={(props) => <NewPost edit /> } />
+            <Route path="/edit-post" render={(props) => <NewPost edit /> } />
             <Route component={Main} />
           </Switch>
         </div>

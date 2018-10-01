@@ -9,25 +9,25 @@ const SignModal = props => {
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
         modMessage = "Login Shtuffs Here"
-        modInput = [<TextIn placeholder="Username/Email" />, <TextIn placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
         modMessage = "Sign Up Shtuffs Here!";
-        modInput = [<TextIn placeholder="Username/Email" />, <TextIn placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
     } else {
-        modSignIn = null;
-        modMessage = null;
-        modInput = null;
+        modSignIn = props.modSignIn ? props.modSignIn : null;
+        modMessage = props.modMessage ? props.modMessage : null;
+        modInput = props.modInput ? props.modInput : null;
     };
     return(
         <div className={modSignIn !== null ? "modal signs" : "modal"} id={props.modId} tabIndex="-1" role="dialog">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 className="modal-title">{modSignIn ? modSignIn : "hello world"}</h5>
+                        <h5 className="modal-title">{modSignIn ? modSignIn : null}</h5>
                     </div>
                     <div className="modal-body">
-                        <p>{modMessage ? modMessage : "hi"}</p>
+                        <p>{modMessage ? modMessage : null}</p>
                         {modInput}
                     </div>
                     <div className="modal-footer">

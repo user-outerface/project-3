@@ -26,6 +26,7 @@ export const Carded = props => {
         </div>      
         )}
         {props.children}
+        {props.extchildren}
     </section>
 )};
 
