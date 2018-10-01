@@ -23,7 +23,20 @@ export class NewPost extends Component {
     };
   };
 
-
+  componentDidMount(){
+    const postPass = window.location.pathname.split("/");
+    let genreGiver;
+    for(let i = 0; i < postPass.length; i++){
+      if(postPass[i].includes("t&gq=")){
+        genreGiver = postPass[i].substr(postPass[i].indexOf("=") + 1);
+      } else if (genreGiver === undefined){
+        genreGiver = "";
+      };
+    };
+    this.setState({
+      genre: genreGiver
+    });
+  };
 
   postChange = (event) =>{
     const { target: { name, value } } = event;
