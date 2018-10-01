@@ -36,7 +36,7 @@ module.exports = {
                     {$push: {post: dbModel._id}},
                     {upsert: true}
                 ).then(upped => {
-                    console.log("upped", upped);
+                    console.log("upped");
                 });
                 res.json(dbModel)
             })
@@ -50,7 +50,6 @@ module.exports = {
                 {_id: req.body.id},
                 {title: req.body.title, body: req.body.body, genre: req.body.genre}
             ).then(dbModel => {
-                console.log("updated");
                 res.json(dbModel);
             })
             .catch(err => res.status(422).json(err));

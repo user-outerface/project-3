@@ -41,7 +41,6 @@ export class NewPost extends Component {
           idPass = idGrab[i].substr(idGrab[i].indexOf("n") + 1);
         };
       };
-      console.log(idPass);
       API.getPost(idPass).then(edP =>{
         const {title, body, genre} = edP.data[0];
         this.setState({
@@ -67,11 +66,7 @@ export class NewPost extends Component {
       title: postTitle,
       body: mainBody,
       genre: genre
-      //vv make a post submittal confirmation
-      //do things here
-      //more green for better visibility
     }).then(res => {
-      console.log("success " + res, res, res.data, res.data.genre)
       const {genre, _id} = res.data;
       window.location = `/posts/t&gq=${genre}/tpm&n=${_id}`;
     });
@@ -100,9 +95,6 @@ export class NewPost extends Component {
   };
 
   render() {
-    if(this.props.new){console.log("new", this.props.new)};
-    if(this.props.edit){console.log("edit", this.props.edit)};
-    console.log(this.props.pathPass);
     return (
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>

@@ -42,13 +42,10 @@ Make sure you're in the proper directory for the installation of the needed pack
 
 # **To Do**
 
-* Convert /pages/Posts.js to a component that edits a post
-* implement put functionality with posts and comments
+* implement full functionality with comments
+* Implement login with google auth and custom login for the site.
 * add markdown functionality with comments/posts
 * possible picture link or even any link shown on hover
-* put genre in url if coming from all
-* give confirmation of comment/post submittal
-* Implement login with google auth and custom login for the site.
 * Styling
 * Clean up post area (Make it look more forum...y, make it look more forumy)
 * Code cleanup, eg: get rid of console logs, redundant code, etc.
