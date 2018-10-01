@@ -50,7 +50,19 @@ export class NewPost extends Component {
     });
   };
 
+  
+  cancelPost = () =>{
+    if(document.referrer.includes(window.location.host || window.location.hostname)){
+      window.history.back();
+    } else {
+      window.location = "/";
+    };
+  };
+
   render() {
+    if(this.props.new){console.log("new", this.props.new)};
+    if(this.props.edit){console.log("edit", this.props.edit)};
+    console.log(this.props.pathPass);
     return (
       <div className="Page">
         <h3 className="my-1 text-white">Welcome!</h3>
@@ -81,8 +93,9 @@ export class NewPost extends Component {
                       value={this.state.mainBody}
                       onChange={this.postChange}
                       classext="bg-opaque"
-                    placeholder="Main Body" />
+                    placeholder="Main Body (expandable)" />
                     <Button children="Submit" onClick={this.postSubmit} />
+                    <Button children="Cancel" onClick={this.cancelPost} />
 
             </Carded>
         </section>
