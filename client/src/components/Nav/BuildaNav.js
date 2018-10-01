@@ -11,9 +11,9 @@ export const BuildaNav = props => {
                     let pathNamer;
                     switch(true){
                         case props.pather[1] === "":
-                            return;
+                            return null;
                         case i === props.pather.length - 1:
-                            return;
+                            return null;
                         case i < props.pather.legnth:
                             newBuild = props.pather.slice(0, i + 1).join("/");
                             break;
@@ -30,7 +30,7 @@ export const BuildaNav = props => {
                             pathNamer = "Home";
                             break;
                         default:
-                            return;
+                            return null;
                     }
                     return <li key={"patholder" + i}> <Button key={"pathed" + i} className="btn btn-default ml-1 mr-1" children={pathNamer && pathNamer} onClick={props.pOnClick} attribsext={{"data-pathing": (newBuild === "" ? null : newBuild)}} /> </li>
                 })}

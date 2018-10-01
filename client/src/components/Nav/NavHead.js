@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
-import AnchorTag from "../AnchorTag/AnchorTag";
+// import { Link } from "react-router-dom";
+// import AnchorTag from "../AnchorTag/AnchorTag";
 import GifList from '../Giffy/GifList';
 import SearchBar from '../Giffy/SearchBar';
 

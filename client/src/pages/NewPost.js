@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import TextLay from '../components/SearchForm/TextLay';
-import Button from "../components/Button/Button";
-import Carded from "../components/Carded";
+// import TextLay from '../components/SearchForm/TextLay';
+// import Button from "../components/Button/Button";
+// import Carded from "../components/Carded";
 import ContentLay from "../components/ContentLay/ContentLay";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import Saved from "./Posts";
-import SignModal from "../components/SignModal/SignModal";
+// import SignModal from "../components/SignModal/SignModal";
 import API from "../utils/API";
 import "./pages.css";
 

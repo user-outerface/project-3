@@ -4,7 +4,7 @@ import Carded from "../components/Carded";
 // import AnchorTag from "../components/AnchorTag/AnchorTag";
 // import InputFields from "../components/SearchForm/InputFields";
 // import Comms from "../components/inComms";
-import API from "../utils/API";
+// import API from "../utils/API";
 import "./pages.css";
 
 //convert this component to an edit post component

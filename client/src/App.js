@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Nav, NavHead, BuildaNav } from "./components/Nav";
-import { Main, Posts, NewPost} from "./pages"
+import { Main, NewPost} from "./pages"
 import API from "./utils/API";
 import './App.css';
 
