@@ -87,7 +87,7 @@ class App extends Component {
       .then(res => {
         this.setState({
           gifs: [res]
-        })
+        });
       });
   };
 
@@ -107,7 +107,15 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <NavHead onChange={this.handleTermChange} gifs={this.state.gifs[0]} />
+
+          <NavHead 
+            sChange={this.searchChange} 
+            sValue={this.state.searchQ} 
+            sExecute={this.formPeeker}
+            sName="searchQ"
+            onChange={this.handleTermChange} 
+          gifs={this.state.gifs[0]} />
+          <h3 className="my-1 title">Welcome to Anime Forum {this.props.dbHit}</h3>
           <Nav />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>

@@ -1,8 +1,9 @@
 import React from 'react';
+import './giffy.css';
 
 const SearchBar = (props) => {
     return (
-        <div className="search">
+        <div id="gif-input" className="search">
             <input onChange={props.onChange} />
         </div>
     );

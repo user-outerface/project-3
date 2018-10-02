@@ -4,7 +4,7 @@ import "./Nav.css";
 
 export const BuildaNav = props => {
     return (
-        <div className="build-a-nav nav-cust my-1">
+        <div className="build-a-nav bot-nav  my-1">
             <ul className="nav">
                 {(props.pather.length !== 0) && props.pather.map((paParts, i) =>{
                     let newBuild;

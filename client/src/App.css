@@ -1,12 +1,25 @@
-body{
+body {
   background: url("/images/abstract-art-artistic-1020315.jpg");
 }
 
-#root{
+#root {
   margin-right: 10%;
   margin-left: 10%;
 }
 
 .App {
   text-align: center;
+}
+
+.title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: whitesmoke;
+  text-shadow: .5px 2px 3px #050505,
+  0 0 25px #ffffffec,
+  0 0 5px rgba(255, 255, 255, 0.767);
+}
+
+.btn {
+  border-radius: 20px;
+  padding: -10px;
 }

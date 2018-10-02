@@ -29,7 +29,7 @@ export class Posts extends Component {
               postname={x + testArray.indexOf(x)} 
               children="short synopsis"
               // classext="rounded-0"
-              className="carded-opaque text-white text-left rounded-0"
+              className="carded-opaque"
             />);
             return tested;
           });

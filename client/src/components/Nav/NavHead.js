@@ -3,21 +3,32 @@ import React from "react";
 // import AnchorTag from "../AnchorTag/AnchorTag";
 import GifList from '../Giffy/GifList';
 import SearchBar from '../Giffy/SearchBar';
+import Button from '../Button/Button';
+import TextIn from '../SearchForm/TextIn';
+import './Nav.css';
 
 export const NavHead = props => {
     return(
-        <div className="da-head-navs nav-cust my-1">
+        <div className="da-head-navs top-nav my-1">
             <ul className="nav">
-                <li className="nav-item">
-                    Icon/Logo goes Here
+                <li className="nav-item">  
+                        <img src="/images/sakura.png" alt="food" height="200px" />
                 </li>
                 <li className="gif-item">
                     <GifList gifs={props.gifs} />
                     <SearchBar onChange={props.onChange} />
                 </li>
                 <li className="nav-item ml-auto">
-                    Searchbar goes here
+                 
                 </li>
+                <li class="search-button">
+                    <Button onClick={props.sExecute} className="search-btn">Search</Button>
+                    {/* <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} classext="bg-red" /> */}
+                </li>
+                <li class="text-in"> 
+                    <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} className="search-input" />
+                </li>
+                
             </ul>
         </div>
     );
