@@ -66,8 +66,12 @@ export default {
         return axios.post("/api/comm", commData);
     },
 
-    deleteComm: function(commId){
-        return axios.delete("/api/comm/" + commId);
+    upComm: function(commData){
+        return axios.put("/api/comm", commData);
+    },
+
+    deleteComm: function(comser){
+        return axios.delete("/api/comm/" + comser.postId + "/" + comser.commId);
     },
     deleteManyComm: function(genreid){
         return axios.delete("/api/comm/many-del/" + genreid)

@@ -19,7 +19,9 @@ export class Main extends Component {
     super(props);
     this.state = {
       comment: "",
-      comGo: "false"
+      ediComm: "",
+      comGo: "false",
+      ediGo: "false"
     };
   };
 
@@ -37,6 +39,15 @@ export class Main extends Component {
     } else if (this.props.secondPopulate && prevProps.hitType !== this.props.hitType){
       this.props.secondPopulate();
     };
+  };
+
+  ediGoChange = (comId, comm) => {
+    console.log("commid", comId);
+    this.setState({
+      ediGo: comId,
+      ediComm: comm
+    });
+    console.log(this.state.ediGo);
   };
 
   commChange = (event)=>{
@@ -59,8 +70,24 @@ export class Main extends Component {
       id: idPass
     };
     API.saveComm(commPass).then(res =>{
-      console.log(res.data);
-      // window.location.reload();
+      window.location.reload();
+    });
+  };
+
+  deleteComm = (id, pId) =>{
+    const postPass = {postId: pId, commId: id};
+    API.deleteComm(postPass).then(res =>{
+      window.location.reload();
+    });
+  };  
+
+  updateComm = (id) =>{
+    const upComPass = {
+      id: id,
+      comment: this.state.ediComm
+    };
+    API.upComm(upComPass).then(res =>{
+      window.location.reload();
     });
   };
 
@@ -117,11 +144,28 @@ export class Main extends Component {
                 </div>}
               children={post.body ? post.body : null } />
 
-              {/*The Below is responsible for mapping the comments */}
+              {/*The Below is responsible for mapping the comments 
+              And swapping between editing or viewing */}
               {post.comment.length > 0 ? post.comment.map(comms =>{
-                return(<Comms key={comms._id} >
+                return(this.state.ediGo === comms._id ?  
+                  <div key={comms._id}>
+                    <TextLay hclext="ml-2"
+                      value={this.state.ediComm}
+                      onChange={this.commChange}
+                      classext="bg-opaque"
+                      textarea="true"
+                      placeholder="Comment (expandable)"
+                    name="ediComm" />
+                    <Button children="Submit" onClick={() => this.updateComm(comms._id)} />
+                    <Button children="Cancel" onClick={() => window.location.reload()} />
+                </div>
+                  : <Comms key={comms._id} 
+                    id={comms._id} 
+                    edigo={this.state.ediGo}
+                  onClickPass={() => this.deleteComm(comms._id, post._id)}>
                   {comms.comment}
-              </Comms>)}) : null}
+                  <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />
+                </Comms>)}) : null}
               {/* End mapping of comments */}
 
               <AnchorTag children="New Comment" onClick={this.showField} />
