@@ -11,8 +11,8 @@ export const NavHead = props => {
     return(
         <div className="da-head-navs top-nav my-1">
             <ul className="nav">
-                <li className="nav-item">
-                    Icon/Logo goes Here
+                <li className="nav-item">  
+                        <img src="/images/sakura.png" alt="food" height="200px" />
                 </li>
                 <li className="gif-item">
                     <GifList gifs={props.gifs} />
@@ -22,7 +22,7 @@ export const NavHead = props => {
                  
                 </li>
                 <li class="search-button">
-                    <Button onClick={props.sExecute} className="search-btn">ClickMe!</Button>
+                    <Button onClick={props.sExecute} className="search-btn">Search</Button>
                     {/* <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} classext="bg-red" /> */}
                 </li>
                 <li class="text-in"> 

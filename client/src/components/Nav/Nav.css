@@ -17,29 +17,39 @@
 
 .top-nav {
     background-color: #2cf68700;
-    border-color: #838181;
+    border-color: #2b2523;
     border-radius: 5px;
-    padding: 50px 6px 50px 6px;
+    /* padding: 50px 6px 50px 6px; */
     margin: 14px;
      color: rgb(216, 234, 240);
 }
 
 .nav-cust {
     background-color: #2cf6879c;
-    border-color: #838181;
+    border-color: #2b2523;
+    border-style: outset;
     border-radius: 5px;
     padding: 6px;
     margin: 14px;
+    border-width: 8px;
      color: rgb(216, 234, 240);
+ -webkit-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+ -moz-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+ box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
 }
 
 .bot-nav {
     background-color: #2cf6879c;
-    border-color: #838181;
+    border-color: #2b2523;
     border-radius: 5px;
+    border-style: outset;
+    border-width: 8px;
     padding: 6px;
     margin: 14px;
      color: rgb(216, 234, 240);
+     -webkit-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+     -moz-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+     box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
 }
 
 .li-item-cust,
@@ -53,13 +63,13 @@
 }
 
 .inactive:hover {
-    border-color: #838181 !important;
+    border-color: #2b2523 !important;
     color: #aac8d1;
 }
 
 #active-cust {
     background: #838181;
-    border-color: #838181;
+    border-color: #2b2523;
     color: #3d3c3c;
 }
 
@@ -67,19 +77,49 @@
     font-size: 0.5em;
 }
 
-.nav-item{
-    padding: 0px 20px 0px 0px;
-}
+/* .nav-item{
+    margin-right: 120px;
+} */
 
 .text-in{
     position: relative;
+    border-color: #2b2523;
 }
 
 .search-input {
     border-radius: 20px;
+    margin-top: 100px;
+    background-color : #36353b69;
+    border-color: #2b2523;
 }
 
 .search-btn{
-    border-radius: 20px;
-    padding: -10px;
+    border-radius: 10px;
+       border-color: #2b2523;
+       border-width: 2px;
+       color: #fff8f8;
+    background-color: #36353b69;
+       margin-top: 100px;
 }
+
+.persona{
+    position: relative;
+    /* bottom: -130px;
+    right: 600px */
+}
+.head-nav{
+    margin-top: -110px;
+}
+.gif-item{
+    margin-top: 100px;
+}
+
+#gif-input input{
+    border-radius: 20px;
+    background-color: #36353b69;
+}
+/* @media screen and (max-width: 650px){
+   .gif-item{
+     
+    }
+} */

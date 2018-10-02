@@ -1,8 +1,8 @@
-body{
+body {
   background: url("/images/abstract-art-artistic-1020315.jpg");
 }
 
-#root{
+#root {
   margin-right: 10%;
   margin-left: 10%;
 }
@@ -11,8 +11,12 @@ body{
   text-align: center;
 }
 
-.my-1{
-    color: rgb(216, 234, 240);
+.title {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: whitesmoke;
+  text-shadow: .5px 2px 3px #050505,
+  0 0 25px #ffffffec,
+  0 0 5px rgba(255, 255, 255, 0.767);
 }
 
 .btn {

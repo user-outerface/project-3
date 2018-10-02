@@ -49,6 +49,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+
           <NavHead 
             sChange={this.searchChange} 
             sValue={this.state.searchQ} 
@@ -56,6 +57,7 @@ class App extends Component {
             sName="searchQ"
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
+          <h3 className="my-1 title">Welcome to Anime Forum {this.props.dbHit}</h3>
           <Nav />
           <BuildaNav />
           <Switch>
