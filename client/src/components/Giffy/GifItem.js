@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 
 const GifItem = (image) => {
@@ -8,7 +6,7 @@ const GifItem = (image) => {
         <li>
             <div className="gif-item">
             <div>hi</div>
-                <img src={image.gif.data.data[0].images.downsized.url} />
+                <img src={image.gif.data.data[0].images.downsized.url} alt="" />
             </div>
         </li>
     )

@@ -11,10 +11,18 @@ module.exports = {
       },
       create: function(req, res){
           db.Comments
-            .create(req.body)
+            .create(req.body.comment)
             .then(dbModel =>{
+                db.Post.findOneAndUpdate(
+                    {_id: req.body.id},
+                    {$push: {comment: dbModel._id} }
+                ).then(upped =>{
+                    console.log("upped");
+                });
+                console.log("dbComment", dbModel);
                 res.json(dbModel);
-            });
+            })
+            .catch(err => res.status(422).json(err));
       },
       removeMany: function(req, res){
         db.Comments
