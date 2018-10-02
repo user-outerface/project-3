@@ -19,8 +19,7 @@ module.exports = {
             ).then(upped =>{
                 console.log("upped");
             })
-            .catch(res => console.log(res));
-            console.log("dbComment", dbModel);
+            .catch(err => console.log(err));
             res.json(dbModel);
         })
         .catch(err => res.status(422).json(err));
