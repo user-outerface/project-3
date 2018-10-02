@@ -45,6 +45,7 @@ Make sure you're in the proper directory for the installation of the needed pack
 <!-- * implement full functionality with comments
 * component switch on comment edit
 * pathing for genre from all -->
+* Implement giphy api responding to genre of forum 
 * Implement login with google auth and custom login for the site.
 * add markdown functionality with comments/posts
 * possible picture link or even any link shown on hover
