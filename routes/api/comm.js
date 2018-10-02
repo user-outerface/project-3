@@ -3,11 +3,15 @@ const commController = require("../../controllers/commController");
 
 router.route("/")
     .get(commController.findAll)
-    .post(commController.create);
+    .post(commController.create)
+    .put(commController.update);
 
-router
-    .route("/:id")
+router.route("/:pId/:cId")
     .delete(commController.removeOne);
+
+// router
+//     .route("/:id")
+//     .delete(commController.removeOne);
 
 router
     .route("/many-del/:id")

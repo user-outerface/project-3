@@ -21,11 +21,11 @@ export const NavHead = props => {
                 <li className="nav-item ml-auto">
                  
                 </li>
-                <li class="search-button">
+                <li className="search-button">
                     <Button onClick={props.sExecute} className="search-btn">Search</Button>
                     {/* <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} classext="bg-red" /> */}
                 </li>
-                <li class="text-in"> 
+                <li className="text-in"> 
                     <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} className="search-input" />
                 </li>
                 
