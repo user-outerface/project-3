@@ -37,6 +37,7 @@ class App extends Component {
   getPost = (postQuer) =>{
     API.getPost(postQuer)
       .then(res => {
+        console.log(res);
         this.setState({
           post: res.data
         })

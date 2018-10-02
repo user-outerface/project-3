@@ -23,6 +23,7 @@ module.exports = {
         req.params.id = mongoose.Types.ObjectId(req.params.id);
         db.Post
             .find({_id: req.params.id})
+            .populate("comment")
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
