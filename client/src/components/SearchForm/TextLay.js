@@ -6,7 +6,7 @@ export const TextLay = props => {
         <section>
             <h5 className={props.hclext ? "my-2 " + props.hclext : "my-2"}>{props.headName}</h5>
             <TextIn 
-                id={props.headName.replace(/\s/g, '')}
+                id={props.headName && props.headName.replace(/\s/g, '')}
                 name={props.name}
                 onChange={props.onChange} 
                 placeholder={props.placeholder} 

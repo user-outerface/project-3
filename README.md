@@ -39,3 +39,13 @@ Make sure you're in the proper directory for the installation of the needed pack
 # **Images**
 
 * abstract-art-artistic-1020315: Photo by rawpixel.com from Pexels 
+
+# **To Do**
+
+* implement full functionality with comments
+* Implement login with google auth and custom login for the site.
+* add markdown functionality with comments/posts
+* possible picture link or even any link shown on hover
+* Styling
+* Clean up post area (Make it look more forum...y, make it look more forumy)
+* Code cleanup, eg: get rid of console logs, redundant code, etc.

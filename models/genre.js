@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const genreSchema = new Schema({
   genre: { type: String, required: true },
-  link: { type: String, required: true },
+  link: { type: String, required: true, default: "test" },
   post: [
     {
       type: Schema.Types.ObjectId,
