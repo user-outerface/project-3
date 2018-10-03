@@ -47,6 +47,7 @@ Make sure you're in the proper directory for the installation of the needed pack
 * pathing for genre from all -->
 * Implement giphy api responding to genre of forum 
 * Implement login with google auth and custom login for the site.
+* If google auth is too hard, just to normal login
 * add markdown functionality with comments/posts
 * possible picture link or even any link shown on hover
 * Styling
