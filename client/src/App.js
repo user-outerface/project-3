@@ -95,6 +95,15 @@ class App extends Component {
     });
   };
 
+  userOut = () =>{
+    API.logout().then(res =>{
+      this.setState({
+        uNam: "",
+        uId: ""
+      }, window.location.reload());
+    })
+  };
+
   getPosts = () =>{
       const winPass = window.location.pathname.split("/");
       let winSwitch = null;
@@ -167,7 +176,7 @@ class App extends Component {
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
           <h3 className="my-1 title">Welcome to Anime Forum {this.props.dbHit}</h3>
-          <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} />
+          <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} login={this.state.uNam} logout={this.userOut} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
             <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />

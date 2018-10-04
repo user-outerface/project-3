@@ -6,7 +6,6 @@ module.exports = {
     credGiver: function(req, res){
         let credPasser;
         try{
-            console.log(req.session.userId);
             if(req.session.userId){
                 credPasser = {
                     uId: req.session.userId,
@@ -25,7 +24,6 @@ module.exports = {
     },
 
     login: function(req, res){
-        console.log(req.body);
         function cbackAuth(errIn, userIn){
             if(userIn && (errIn === null)){
                 req.session.userId = userIn._id;
@@ -41,6 +39,16 @@ module.exports = {
             req.body.password,
             cbackAuth
         );
+    },
+
+    logout: function(req, res){
+        if(req.session.userId){
+            req.session.userId = "";
+            req.session.userNam = "";
+            res.json("/");
+        } else {
+            res.json("invalid");
+        };
     },
 
     signup: function(req, res){

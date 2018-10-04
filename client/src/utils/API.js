@@ -83,12 +83,14 @@ export default {
     },
 
     login: function(creds){
-        console.log("user log in");
         return axios.post("/api/user/login", creds);
     },
 
     signup: function(creds){
-        console.log("user sign up");
         return axios.post("/api/user", creds);
+    },
+
+    logout: function(){
+        return axios.get("/api/user/out");
     }
 };

@@ -7,7 +7,6 @@ const SignModal = props => {
     let modSignIn;
     let modMessage;
     let modInput;
-    let btFunk;
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
         modMessage = "Login Shtuffs Here"

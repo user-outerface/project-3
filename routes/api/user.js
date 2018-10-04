@@ -10,4 +10,7 @@ router.route("/login")
 router.route("/creds")
     .get(userController.credGiver);
 
+router.route("/out")
+    .get(userController.logout);
+
 module.exports = router;

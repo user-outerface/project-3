@@ -37,7 +37,7 @@ export const Nav = props => {
                     </Link>
                 </li>
                 <li className="ml-auto mr-1 d-flex align-items-center">
-                    {props.login ? <DropAc /> : (
+                    {props.login !== "" ? <DropAc logout={props.logout} login={props.login} /> : (
                         <div>
                             <AnchorTag 
                                 hrefless="true" 
