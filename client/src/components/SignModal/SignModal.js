@@ -1,24 +1,33 @@
 import React from "react";
 import TextIn from "../SearchForm/TextIn";
+import Button from "../Button/Button";
 import "./SignModal.css";
 
 const SignModal = props => {
     let modSignIn;
     let modMessage;
     let modInput;
+    let btFunk;
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
         modMessage = "Login Shtuffs Here"
-        modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" name="" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" onChange={props.onChange} placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
         modMessage = "Sign Up Shtuffs Here!";
-        modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" onChange={props.onChange} placeholder="Password" />];
     } else {
         modSignIn = props.modSignIn ? props.modSignIn : null;
         modMessage = props.modMessage ? props.modMessage : null;
         modInput = props.modInput ? props.modInput : null;
     };
+    // if(props.submitL){
+    //     btFunk = props.submitL;
+    // } else if (props.submitS){
+    //     btFunk = props.submitS;
+    // } else {
+    //     btFunk = null;
+    // };
     return(
         <div className={modSignIn !== null ? "modal signs" : "modal"} id={props.modId} tabIndex="-1" role="dialog">
             <div className="modal-dialog" role="document">
@@ -31,8 +40,8 @@ const SignModal = props => {
                         {modInput}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">Submit</button>
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <Button className="btn btn-primary" onClick={props.onClick} >Submit</Button>
+                        <Button type="button" className="btn btn-secondary" data-dismiss="modal">Close</Button>
                     </div>
                 </div>
             </div>

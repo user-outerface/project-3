@@ -73,7 +73,20 @@ export default {
     deleteComm: function(comser){
         return axios.delete("/api/comm/" + comser.postId + "/" + comser.commId);
     },
+
     deleteManyComm: function(genreid){
         return axios.delete("/api/comm/many-del/" + genreid)
+    },
+
+    getCreds: function(){
+        return axios.get("/api/user/creds");
+    },
+
+    login: function(creds){
+        return axios.post("/api/user", creds);
+    },
+
+    signup: function(creds){
+        return axios.post("/api/user", creds);
     }
 };

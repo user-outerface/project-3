@@ -56,8 +56,8 @@ export const Nav = props => {
                             </AnchorTag>
 
                             <div className="mod-dump">
-                                <SignModal modId="modalLogIn" />
-                                <SignModal modId="modalSignUp" />
+                                <SignModal modId="modalLogIn" onChange={props.onChange} onClick={props.submitLo} />
+                                <SignModal modId="modalSignUp" onChange={props.onChange} onClick={props.submitSi} />
                             </div>
                         </div>
                     )}

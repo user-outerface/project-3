@@ -14,14 +14,23 @@ class App extends Component {
       posts: [],
       genres: [],
       post: [],
-      path: []
+      path: [],
+      uId: "",
+      uNam: "",
+      user: "",
+      pwd: ""
     };
   };
 
   componentDidMount(){
     const pathPass = window.location.pathname.split("/");
-    this.setState({
-      path: pathPass
+    API.getCreds().then(res =>{
+      console.log(res);
+      this.setState({
+        path: pathPass,
+        uId: res.uId,
+        uNam: res.uNam
+      });
     });
   };
 
@@ -39,9 +48,46 @@ class App extends Component {
       .then(res => {
         this.setState({
           post: res.data
-        })
+        });
       });
-  }
+  };
+
+  changer = (event) =>{
+    const {target: {name, value}} = event;
+    this.setState({
+      [name]: value
+    })
+  };
+
+  makeUser = () =>{
+    const {user, pwd} = this.state;
+    const userCreds = {
+      username: user,
+      password: pwd
+    };
+    API.signup(userCreds).then(res =>{
+      this.setState({
+        user: "",
+        pwd: ""
+      });
+      window.location.reload();
+    });
+  };
+
+  logUser = () =>{
+    const {user, pwd} = this.state;
+    const userCreds = {
+      username: user,
+      password: pwd
+    };
+    API.login(userCreds).then(res =>{
+      this.setState({
+        user: "",
+        pwd: ""
+      }); 
+      window.location.reload();
+    });
+  };
 
   getPosts = () =>{
       const winPass = window.location.pathname.split("/");
@@ -79,7 +125,7 @@ class App extends Component {
           genres: [res.data]
         });
       });
-  }
+  };
 
   handleTermChange = (event) => {
     API.handleTermChange(event.target.value)
@@ -115,7 +161,7 @@ class App extends Component {
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
           <h3 className="my-1 title">Welcome to Anime Forum {this.props.dbHit}</h3>
-          <Nav />
+          <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
             <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
