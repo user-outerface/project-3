@@ -11,11 +11,11 @@ const SignModal = props => {
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
         modMessage = "Login Shtuffs Here"
-        modInput = [<TextIn key="Username/Email" name="" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" onChange={props.onChange} placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
         modMessage = "Sign Up Shtuffs Here!";
-        modInput = [<TextIn key="Username/Email" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" onChange={props.onChange} placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else {
         modSignIn = props.modSignIn ? props.modSignIn : null;
         modMessage = props.modMessage ? props.modMessage : null;

@@ -25,11 +25,12 @@ class App extends Component {
   componentDidMount(){
     const pathPass = window.location.pathname.split("/");
     API.getCreds().then(res =>{
+      const {uId, uNam} = res.data;
       console.log(res);
       this.setState({
         path: pathPass,
-        uId: res.uId,
-        uNam: res.uNam
+        uId: uId,
+        uNam: uNam
       });
     });
   };
@@ -53,6 +54,7 @@ class App extends Component {
   };
 
   changer = (event) =>{
+    console.log("fire change")
     const {target: {name, value}} = event;
     this.setState({
       [name]: value
@@ -60,11 +62,13 @@ class App extends Component {
   };
 
   makeUser = () =>{
+    console.log("fire user");
     const {user, pwd} = this.state;
     const userCreds = {
       username: user,
       password: pwd
     };
+    console.log(userCreds);
     API.signup(userCreds).then(res =>{
       this.setState({
         user: "",
@@ -75,11 +79,13 @@ class App extends Component {
   };
 
   logUser = () =>{
+    console.log("fire log");
     const {user, pwd} = this.state;
     const userCreds = {
       username: user,
       password: pwd
     };
+    console.log(userCreds);
     API.login(userCreds).then(res =>{
       this.setState({
         user: "",
@@ -152,7 +158,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-
+          <h1 className="text-white">hi! {this.state.uNam}</h1>
           <NavHead 
             sChange={this.searchChange} 
             sValue={this.state.searchQ} 

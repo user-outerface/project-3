@@ -49,7 +49,7 @@ UsersSchema.pre('save', function(next){
 //authentication 
 
 UsersSchema.statics.authenticate = function(username, password, callback){
-    let hash = hashPassword(password);
+    // let hash = hashPassword(password);
     Users.findOne({username: username})
         .exec(function(err, user){
             if(err){
@@ -59,7 +59,7 @@ UsersSchema.statics.authenticate = function(username, password, callback){
                 err.status = 401;
                 return callback(err);
             };
-            bcrypt.compare(password, hash, function(err, res){
+            bcrypt.compare(password, user.password, function(err, res){
                 if(res === true){
                     return callback(null, user);
                 } else {

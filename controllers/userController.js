@@ -5,25 +5,31 @@ module.exports = {
 
     credGiver: function(req, res){
         let credPasser;
-        if(req.session.userId){
-            credPasser = {
-                uId: req.session.userId,
-                uNam: req.session.userNam
+        try{
+            console.log(req.session.userId);
+            if(req.session.userId){
+                credPasser = {
+                    uId: req.session.userId,
+                    uNam: req.session.userNam
+                };
+            } else {
+                credPasser = {
+                    uId: "",
+                    uNam: ""
+                };
             };
-        } else {
-            credPasser = {
-                uId: "",
-                uNam: ""
-            };
+            res.json(credPasser);
+        } catch(err){
+            res.status(422).json(err);
         };
-        res.json(credPasser);
     },
 
     login: function(req, res){
+        console.log(req.body);
         function cbackAuth(errIn, userIn){
             if(userIn && (errIn === null)){
-                req.session.userId = userIn.id;
-                req.session.userNam = userIn.userNam;
+                req.session.userId = userIn._id;
+                req.session.userNam = userIn.username;
                 res.json("/");
             } else {
                 res.json("invalid");
@@ -34,9 +40,7 @@ module.exports = {
             req.body.username,
             req.body.password,
             cbackAuth
-        ).catch(err =>{
-            res.status(422).json(err);
-        });
+        );
     },
 
     signup: function(req, res){
