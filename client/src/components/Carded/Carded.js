@@ -8,9 +8,9 @@ export const Carded = props => {
         pubArt = props.published;
     };
     if(props.classext){
-        classext="card col-8 mx-auto text-left " + props.classext
+        classext="card col-8 mx-auto" + props.classext
     } else {
-        classext="card col-8 mx-auto text-left"
+        classext="card col-8 mx-auto"
     };
     return(
     <section className={classext} {...props}>
@@ -18,15 +18,17 @@ export const Carded = props => {
             {props.cardname ? props.cardname : null}
             {props.postname ? props.postname : null}
             {pubArt ? (<div className="published">Published: {pubArt}</div>) : null}
-        </div>) : ( <div>
+        </div>) : ( <div> Genre:
                 {props.cardname ? <h2 className="card-header">
                     {props.postname}
                 </h2>: null}
                 {props.postname ? <div>{props.postname}</div> : null}
         </div>      
         )}
-        {props.children}
-        {props.extchildren}
+            <div>Post:
+            <div className="post-text-prim">{props.children}</div>
+        </div>
+            <div className="post-text-secon">{props.extchildren}</div>
     </section>
 )};
 

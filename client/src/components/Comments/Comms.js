@@ -1,12 +1,13 @@
 import React from "react";
 import Button from "../Button/Button";
+import "./comment.css";
 
 export const Comms = props => {
     return(
-    <div className=" mb-3 bg-light my-1">
-        <div className="border text-left">
-            <div className="align-self-center">{props.children}</div>
-            <Button className="btn btn-danger m-0" onClick={props.onClickPass} attribsext={{id: props.id}}>✘</Button>
+    <div className=" mb-3 my-1 comms-div-p">
+        <div className="text-left comms-div">
+            <div className="align-self-center comms-text">{props.children}</div>
+                <Button className="btn comms-btn " onClick={props.onClickPass} attribsext={{ id: props.id }}>ಠ_ಠ  &#10157;</Button>
         </div>
     </div>
 

@@ -138,8 +138,8 @@ export class Main extends Component {
                 className="carded-opaque text-white text-left rounded-0"
                 postname={post.title}
                 extchildren={<div>
-                  <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />
-                  <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />
+                  <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />
+                  <AnchorTag onClick={() => { this.deleterPost(post._id) }} anchClass="del-btn" children="Delete" />
                 </div>}
               children={post.body ? post.body : null } />
 

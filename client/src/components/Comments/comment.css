@@ -1,0 +1,38 @@
+.comms-btn {
+    color: #fff;
+    background-color: #36353bd2;
+    border-color: #2b2523;
+    width: 60px;
+    margin: 20px;
+    padding: 4px;
+}
+
+.comms-btn:hover {
+    color: #fff8f8;
+    background-color: #00000085;
+    border-color: #000000f3;
+}
+
+.comms-btn:focus,
+.comms-btn.focus {
+    box-shadow: 0 0 0 0.2rem rgba(95, 95, 95, 0.5);
+}
+
+.comms-div-p {
+    text-align: left;
+    border-radius: 10px;
+}
+
+.comms-div {
+    background-color: #36353bd2;
+    border: 1px solid #000000;
+    text-align: left;
+    border-radius: 10px;
+}
+
+.comms-text {
+    -ms-flex-item-align: center;
+    align-self: center;
+     color: #fff8f8;
+     margin-left: 20px;
+}
