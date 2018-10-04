@@ -115,8 +115,6 @@ export class Main extends Component {
     };
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome!</h3>
-
         <section className="mb-3">
 
           {/*This maps all posts within a given genre*/}
