@@ -165,7 +165,7 @@ export class Main extends Component {
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 
-              <AnchorTag children="New Comment" onClick={this.showField} />
+              <AnchorTag className="new-com" children="New Comment" onClick={this.showField} />
               {this.state.comGo === "true" &&
                 <div>
                   <TextLay hclext="ml-2"
@@ -175,7 +175,7 @@ export class Main extends Component {
                     textarea="true"
                     placeholder="Comment (expandable)"
                   name="comment" />
-                  <Button children="Submit" onClick={this.commSubmit} />
+                <Button className="sub-btn" children="Submit" onClick={this.commSubmit} />
                 </div>
               }
             </section>
@@ -183,7 +183,7 @@ export class Main extends Component {
           
           {/* End mapping of post */}
 
-          <AnchorTag href={"/new-post/" + genreGiver} children="New Post" />
+          <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />
         </section>
       </div>
     );

@@ -32,7 +32,7 @@ export const BuildaNav = props => {
                         default:
                             return null;
                     }
-                    return <li key={"patholder" + i}> <Button key={"pathed" + i} className="btn btn-default ml-1 mr-1" children={pathNamer && pathNamer} onClick={props.pOnClick} attribsext={{"data-pathing": (newBuild === "" ? null : newBuild)}} /> </li>
+                    return <li key={"patholder" + i}> <Button key={"pathed" + i} className="nav-butt" children={pathNamer && pathNamer} onClick={props.pOnClick} attribsext={{"data-pathing": (newBuild === "" ? null : newBuild)}} /> </li>
                 })}
             </ul>
         </div> 
