@@ -1,15 +1,15 @@
 .comms-btn {
     color: #fff;
-    background-color: #36353bd2;
+    background-color: #ff5353b9;
     border-color: #2b2523;
-    width: 60px;
+    width: 120px;
     margin: 20px;
     padding: 4px;
 }
 
 .comms-btn:hover {
     color: #fff8f8;
-    background-color: #00000085;
+    background-color: #0000000e;
     border-color: #000000f3;
 }
 

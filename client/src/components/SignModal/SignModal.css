@@ -1,5 +1,5 @@
 .signs{
-    color: initial;
+    background-color: rgba(51, 51, 51, 0.459);
     font: inherit;
     font-size: 100%;
 }
@@ -19,3 +19,23 @@
 */
 
 /* =====Only Change Styles Below This Line===== */
+
+.modal-footer{
+    background-image: url('https://wallpapertag.com/wallpaper/full/9/a/9/722889-best-neon-colors-wallpaper-2560x1440.jpg');
+    border-radius: 10px;
+}
+
+.modal-body {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.modal-header {
+    background-image: url('https://wallpapertag.com/wallpaper/full/9/a/9/722889-best-neon-colors-wallpaper-2560x1440.jpg');
+    border-radius: 10px;
+}
+.modal-content{
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0);
+       color: rgba(0, 255, 191, 0.973);
+       text-shadow: 2px 3px 4px black;
+}
