@@ -95,6 +95,13 @@ class App extends Component {
     window.location = pathing;
   };
 
+
+
+
+
+
+  
+
   render() {
     const postPass = window.location.pathname.split("/");
     let postSwitch = null;
@@ -105,7 +112,26 @@ class App extends Component {
     };
     return (
       <Router>
+
+        <section>
+
+          <div className="crossfade" >
+
+            <figure></figure>
+
+            <figure></figure>
+
+            <figure></figure>
+
+            <figure></figure>
+
+            <figure></figure>
+
+          </div>
+
         <div className="App">
+
+
 
           <NavHead 
             sChange={this.searchChange} 
@@ -140,6 +166,7 @@ class App extends Component {
             <Route component={Main} />
           </Switch>
         </div>
+        </section>
       </Router>
     );
   };
