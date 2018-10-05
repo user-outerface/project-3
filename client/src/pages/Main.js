@@ -61,11 +61,15 @@ export class Main extends Component {
     for(let i = 0; i < idPeek.length; i++){
       if(idPeek[i].includes("tpm&n=")){
         idPass = idPeek[i].substr(idPeek[i].indexOf("=") + 1);
-      }
+      };
     };
     const commPass = {
-      comment: {comment: this.state.comment},
-      id: idPass
+      comment: {
+        comment: this.state.comment,
+        uId: this.props.user,
+        username: this.props.username
+      },
+      id: idPass,
     };
     API.saveComm(commPass).then(res =>{
       window.location.reload();
@@ -98,7 +102,9 @@ export class Main extends Component {
   deleterPost = (nId) =>{
     API.delUpper({
       id: nId,
-      body: "[deleted]"
+      body: "[deleted]",
+      username: "[deleted]",
+      deleted: "true"
     }).then(window.location.reload());
   };
 
@@ -121,11 +127,14 @@ export class Main extends Component {
           {/*The anchor tag will need to change if there 
           are deeper url paths, for now it should be fine*/}
           {((res !== undefined) && (this.props.nonSpec)) ? res[0] && res[0].map(posts => {
-            return <Carded 
-              key={posts._id}
-              className="carded-opaque text-white text-left rounded-0"
-              postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
-            children={posts.body ? posts.body : null } />
+            if(this.props.uList && posts.deleted === "true"){return null};
+            return (<section key={posts._id}>
+              <Carded 
+                className="carded-opaque text-white text-left rounded-0"
+                postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+              children={posts.body ? posts.body : null } />
+              {this.props.hitType === "user-posts" && <AnchorTag onClick={() =>{this.deleterPost(posts._id)}} children="Delete" />}
+            </section>)
           }) : null}
           {/*End mapping of all posts within a given genre*/}
 
@@ -136,8 +145,8 @@ export class Main extends Component {
                 className="carded-opaque text-white text-left rounded-0"
                 postname={post.title}
                 extchildren={<div>
-                  <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />
-                  <AnchorTag onClick={() => { this.deleterPost(post._id) }} anchClass="del-btn" children="Delete" />
+                  {this.props.user === post.uId && <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />}
+                  {this.props.user === post.uId && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} anchClass="del-btn" children="Delete" />}
                 </div>}
               children={post.body ? post.body : null } />
 
@@ -159,13 +168,15 @@ export class Main extends Component {
                 </div> : <Comms key={comms._id}
                     id={comms._id} 
                     edigo={this.state.ediGo}
+                    user={this.props.user}
+                    deletgo={this.props.user === comms.uId ? "true" : ""}
                   onClickPass={() => this.deleteComm(comms._id, post._id)}>
                   {comms.comment}
-                  <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />
+                  {this.props.user === comms.uId && <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 
-              <AnchorTag className="new-com" children="New Comment" onClick={this.showField} />
+              {this.props.user && <AnchorTag children="New Comment" onClick={this.showField} />}
               {this.state.comGo === "true" &&
                 <div>
                   <TextLay hclext="ml-2"
@@ -183,7 +194,7 @@ export class Main extends Component {
           
           {/* End mapping of post */}
 
-          <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />
+          {this.props.user && <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
         </section>
       </div>
     );
