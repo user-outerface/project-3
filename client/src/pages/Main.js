@@ -61,13 +61,15 @@ export class Main extends Component {
     for(let i = 0; i < idPeek.length; i++){
       if(idPeek[i].includes("tpm&n=")){
         idPass = idPeek[i].substr(idPeek[i].indexOf("=") + 1);
-      }
+      };
     };
     const commPass = {
-      comment: {comment: this.state.comment},
+      comment: {
+        comment: this.state.comment,
+        uId: this.props.user,
+        username: this.props.username
+      },
       id: idPass,
-      uId: this.props.user,
-      username: this.props.username
     };
     API.saveComm(commPass).then(res =>{
       window.location.reload();
@@ -106,6 +108,7 @@ export class Main extends Component {
 
   render() {
     let res = this.props.dbHit;
+    console.log(res);
     const postPass = window.location.pathname.split("/");
     let genreGiver;
     for(let i = 0; i < postPass.length; i++){
@@ -140,8 +143,8 @@ export class Main extends Component {
                 className="carded-opaque text-white text-left rounded-0"
                 postname={post.title}
                 extchildren={<div>
-                  {this.props.user && <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />}
-                  {this.props.user && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />}
+                  {this.props.user === post.uId && <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />}
+                  {this.props.user === post.uId && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />}
                 </div>}
               children={post.body ? post.body : null } />
 
@@ -164,9 +167,10 @@ export class Main extends Component {
                     id={comms._id} 
                     edigo={this.state.ediGo}
                     user={this.props.user}
+                    deletgo={this.props.user === comms.uId ? "true" : ""}
                   onClickPass={() => this.deleteComm(comms._id, post._id)}>
                   {comms.comment}
-                  {this.props.user && <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
+                  {this.props.user === comms.uId && <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 

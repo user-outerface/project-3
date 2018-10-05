@@ -6,7 +6,7 @@ export const Comms = props => {
     <div className=" mb-3 bg-light my-1">
         <div className="border text-left">
             <div className="align-self-center">{props.children}</div>
-            {props.user && <Button className="btn btn-danger m-0" onClick={props.onClickPass} attribsext={{id: props.id}}>✘</Button>}
+            {props.deletgo === "true" && <Button className="btn btn-danger m-0" onClick={props.onClickPass} attribsext={{id: props.id}}>✘</Button>}
         </div>
     </div>
 

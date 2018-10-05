@@ -10,7 +10,6 @@ module.exports = {
           .catch(err => res.status(422).json(err));
     },
     create: function(req, res){
-        // req.body.id = mongoose.Types.ObjectId(req.body.id);
         db.Comments
         .create(req.body.comment)
         .then(dbModel =>{

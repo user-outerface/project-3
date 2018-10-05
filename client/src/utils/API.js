@@ -1,5 +1,3 @@
-// this is good boiler. We can use this for reference for later
-
 import axios from "axios";
 
 export default {
