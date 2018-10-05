@@ -25,7 +25,8 @@
 }
 
 .nav-cust {
-    background-color: #2cf6879c;
+        background-image: url('https://images.wallpaperscraft.com/image/glare_color_bright_colorful_background_19980_1920x1080.jpg');
+
     border-color: #2b2523;
     border-style: outset;
     border-radius: 5px;
@@ -39,7 +40,7 @@
 }
 
 .bot-nav {
-    background-color: #2cf6879c;
+    background-color: #e97effad;
     border-color: #2b2523;
     border-radius: 5px;
     border-style: outset;
@@ -83,18 +84,22 @@
 }
 
 .search-input {
+    border-style: inset;
     border-radius: 20px;
     margin-top: 100px;
-    background-color: #36353b69;
-    border-color: #2b2523;
+    background-color: #36353bb2;
+    color: white;
+    text-shadow: 2px 2px black;
+    padding-left: 10px;
 }
 
 .search-btn {
+     border-style: inset;
     border-radius: 10px;
-    border-color: #2b2523;
+    margin-right: 4px;
     border-width: 2px;
     color: #fff8f8;
-    background-color: #36353b69;
+    background-color: #36353bb2;
     margin-top: 100px;
 }
 

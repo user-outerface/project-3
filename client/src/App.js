@@ -168,8 +168,8 @@ class App extends Component {
           </Switch>
         </div>
 
-        <Footer classext="bg-danger">
-          Hello
+        <Footer classext="foot">
+          2018 &copy; Copywrite - Craig Wright | Jared Bryce | Ronnie Bario	
         </Footer>
         </section>
       </Router>
