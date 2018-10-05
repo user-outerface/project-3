@@ -31,10 +31,11 @@
 
 
  .crossfade>figure {
+   background-attachment: fixed;
    animation: imageAnimation 30s linear infinite 0s;
    backface-visibility: hidden;
    background-size: cover;
-   background-position: center center;
+   /* background-position: center center; */
   color: transparent;
    height: 100%;
   left: 0px;

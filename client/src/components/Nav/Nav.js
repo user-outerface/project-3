@@ -46,7 +46,7 @@ export const Nav = props => {
                                 classext="d-inline"
                             >
                                     Login
-                            </AnchorTag> or <AnchorTag 
+                            </AnchorTag> <span className="or">or</span> <AnchorTag 
                                 hrefless="true"     
                                 data-toggle="modal"     
                                 data-target="#modalSignUp"
