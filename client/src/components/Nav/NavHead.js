@@ -12,7 +12,7 @@ export const NavHead = props => {
         <div className="da-head-navs top-nav my-1">
             <ul className="nav">
                 <li className="nav-item">  
-                        <img src="./images/sakura.png" alt="food" height="200px" />
+                        <img src="../../images/Sakura.png" alt="food" height="200px" />
                 </li>
                 <li className="gif-item">
                     <GifList gifs={props.gifs} />
