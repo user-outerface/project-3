@@ -133,7 +133,7 @@ export class Main extends Component {
                 className="carded-opaque text-white text-left rounded-0"
                 postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
               children={posts.body ? posts.body : null } />
-              {this.props.hitType === "user-posts" && <AnchorTag onClick={() =>{this.deleterPost(posts._id)}} children="Delete" />} }
+              {this.props.hitType === "user-posts" && <AnchorTag onClick={() =>{this.deleterPost(posts._id)}} children="Delete" />}
             </section>)
           }) : null}
           {/*End mapping of all posts within a given genre*/}
