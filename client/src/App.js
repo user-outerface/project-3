@@ -27,7 +27,6 @@ class App extends Component {
     // API.getUserPosts("hello");
     API.getCreds().then(res =>{
       const {uId, uNam} = res.data;
-      console.log(res);
       this.setState({
         path: pathPass,
         uId: uId,
@@ -54,8 +53,16 @@ class App extends Component {
       });
   };
 
+  getUserPosts = (uId) =>{
+    API.getUserPosts(uId)
+      .then(res =>{
+        this.setState({
+          posts: [res.data]
+        });
+      });
+  };
+
   changer = (event) =>{
-    console.log("fire change")
     const {target: {name, value}} = event;
     this.setState({
       [name]: value
@@ -83,7 +90,6 @@ class App extends Component {
       username: user,
       password: pwd
     };
-    console.log(userCreds);
     API.login(userCreds).then(res =>{
       this.setState({
         user: "",
@@ -155,12 +161,16 @@ class App extends Component {
   };
 
   render() {
+    console.log(this.state.posts);
     const postPass = window.location.pathname.split("/");
     let postSwitch = null;
     for(let i = 0; i < postPass.length; i++){
       if(postPass[i].includes("tpm&n=")){
         postSwitch = postPass[i].substr(postPass[i].indexOf("=") + 1);
       };
+    };
+    if(window.location.pathname === "/user"){
+      window.location = "/";
     };
     return (
       <Router>
@@ -198,8 +208,18 @@ class App extends Component {
                   hitType="posts" />
                 }
             }} />
-            {/* <Route />
-            <Route /> */}
+            <Route exact path="/user/posts" 
+              render={(props) =>{
+                return <Main username={this.state.uNam}
+                  user={this.state.uId}
+                  dbHit={this.state.posts}
+                  populate={this.getUserPosts}
+                  nonSpec 
+                  uList
+                hitType="user-posts" />
+              }
+            } />
+            {/* <Route /> */}
             <Route path="/new-post" 
               render={
                 (props) => 

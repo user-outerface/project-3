@@ -18,7 +18,7 @@ export default {
 
     getUserPosts: function(id){
         const query = {
-            _id: id
+            uId: "true"
         };
         return axios.get("/api/post", {params: query});
     },
@@ -69,7 +69,7 @@ export default {
 
     getUserComms: function(id){
         const query = {
-            _id: id
+            uId: id
         };
         return axios.get("/api/comm", {params: query})
     },

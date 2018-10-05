@@ -102,13 +102,14 @@ export class Main extends Component {
   deleterPost = (nId) =>{
     API.delUpper({
       id: nId,
-      body: "[deleted]"
+      body: "[deleted]",
+      username: "[deleted]",
+      deleted: "true"
     }).then(window.location.reload());
   };
 
   render() {
     let res = this.props.dbHit;
-    console.log(res);
     const postPass = window.location.pathname.split("/");
     let genreGiver;
     for(let i = 0; i < postPass.length; i++){
@@ -128,11 +129,14 @@ export class Main extends Component {
           {/*The anchor tag will need to change if there 
           are deeper url paths, for now it should be fine*/}
           {((res !== undefined) && (this.props.nonSpec)) ? res[0] && res[0].map(posts => {
-            return <Carded 
-              key={posts._id}
-              className="carded-opaque text-white text-left rounded-0"
-              postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
-            children={posts.body ? posts.body : null } />
+            if(this.props.uList && posts.deleted === "true"){return null};
+            return (<section key={posts._id}>
+              <Carded 
+                className="carded-opaque text-white text-left rounded-0"
+                postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+              children={posts.body ? posts.body : null } />
+              {this.props.hitType === "user-posts" && <AnchorTag onClick={() =>{this.deleterPost(posts._id)}} children="Delete" />} }
+            </section>)
           }) : null}
           {/*End mapping of all posts within a given genre*/}
 

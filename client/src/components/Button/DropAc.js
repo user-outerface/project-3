@@ -7,8 +7,8 @@ const DropAc = props =>(
             {props.login}
         </button>
         <div className="dropdown-menu dropdown-menu-right drop-menu-cust" aria-labelledby="dropdownMenuButton">
-            <a className="dropdown-item">Posts</a>
-            <a className="dropdown-item">Comments</a>
+            <a href="/user/posts" className="dropdown-item">Posts</a>
+            <a href="/user/comments" className="dropdown-item">Comments</a>
             <a className="dropdown-item" onClick={props.logout}>Logout</a>
         </div>
     </div>
