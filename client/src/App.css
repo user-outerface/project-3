@@ -10,7 +10,6 @@
 .App {
   text-align: center;
   position: relative;
-  z-index: 365;
 }
 
 .title {
