@@ -158,10 +158,14 @@ export class Main extends Component {
                 {/* If the state isn't set to allow the comment to be eidited, it gives the basic comment layout */}
                 </div> : <Comms key={comms._id}
                     id={comms._id} 
-                    edigo={this.state.ediGo}
-                  onClickPass={() => this.deleteComm(comms._id, post._id)}>
+                    edigo={this.state.ediGo} 
+                  onClickPass={() => this.deleteComm(comms._id, post._id)}> 
+                  <div class="comment-text">
+                    Comment:
+                  </div>
                   {comms.comment}
-                  <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />
+                  {/* this is how its done... "Craig wright" */}
+                  <Button attribsext={{"className": "edit-com"}} children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 

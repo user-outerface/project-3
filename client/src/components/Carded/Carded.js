@@ -28,7 +28,7 @@ export const Carded = props => {
             <div>Post:
             <div className="post-text-prim">{props.children}</div>
         </div>
-            <div className="post-text-secon">{props.extchildren}</div>
+            {/* <div className="post-text-secon">{props.extchildren}</div> */}
     </section>
 )};
 
