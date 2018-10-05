@@ -9,6 +9,9 @@ router.route("/")
   .post(postController.create)
   .put(postController.update);
 
+// router.route("/user")
+//   .get(postController.findAll);
+
 router.route("/some/:genSwitch")
   .get(postController.findSome);
 

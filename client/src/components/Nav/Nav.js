@@ -37,7 +37,7 @@ export const Nav = props => {
                     </Link>
                 </li>
                 <li className="ml-auto mr-1 d-flex align-items-center">
-                    {props.login ? <DropAc /> : (
+                    {props.login !== "" ? <DropAc logout={props.logout} login={props.login} /> : (
                         <div>
                             <AnchorTag 
                                 hrefless="true" 
@@ -56,8 +56,8 @@ export const Nav = props => {
                             </AnchorTag>
 
                             <div className="mod-dump">
-                                <SignModal modId="modalLogIn" />
-                                <SignModal modId="modalSignUp" />
+                                <SignModal modId="modalLogIn" onChange={props.onChange} onClick={props.submitLo} />
+                                <SignModal modId="modalSignUp" onChange={props.onChange} onClick={props.submitSi} />
                             </div>
                         </div>
                     )}
