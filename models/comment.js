@@ -12,6 +12,8 @@ const commentSchema = new Schema({
             "Please create a valid comment"
         ],
     },
+    uId: {type: String, required: true},
+    username: {type: String, required: true},
     post: String
 });
 

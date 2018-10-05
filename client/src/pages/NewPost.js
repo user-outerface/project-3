@@ -65,7 +65,9 @@ export class NewPost extends Component {
     API.makePost({
       title: postTitle,
       body: mainBody,
-      genre: genre
+      genre: genre,
+      uId: this.props.user,
+      username: this.props.username
     }).then(res => {
       const {genre, _id} = res.data;
       window.location = `/posts/t&gq=${genre}/tpm&n=${_id}`;

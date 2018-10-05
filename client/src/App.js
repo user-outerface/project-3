@@ -24,6 +24,7 @@ class App extends Component {
 
   componentDidMount(){
     const pathPass = window.location.pathname.split("/");
+    // API.getUserPosts("hello");
     API.getCreds().then(res =>{
       const {uId, uNam} = res.data;
       console.log(res);
@@ -62,13 +63,11 @@ class App extends Component {
   };
 
   makeUser = () =>{
-    console.log("fire user");
     const {user, pwd} = this.state;
     const userCreds = {
       username: user,
       password: pwd
     };
-    console.log(userCreds);
     API.signup(userCreds).then(res =>{
       this.setState({
         user: "",
@@ -79,7 +78,6 @@ class App extends Component {
   };
 
   logUser = () =>{
-    console.log("fire log");
     const {user, pwd} = this.state;
     const userCreds = {
       username: user,
@@ -179,26 +177,48 @@ class App extends Component {
           <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} login={this.state.uNam} logout={this.userOut} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
-            <Route exact path="/" render={(props) =>  <Main populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
+            <Route exact path="/" render={(props) =>  <Main user={this.state.uId} username={this.state.uNam} populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
             <Route 
               path="/posts/" 
               render={(props) =>{
                 if(postSwitch){
                   return <Main 
+                    username={this.state.uNam}
+                    user={this.state.uId}
                     secondPopulate={() => this.getPost(postSwitch)} 
                     dbHit={this.state.post} 
                   hitType="single-lady" />
                 } else {
                   return <Main 
+                    username={this.state.uNam}
+                    user={this.state.uId}
                     populate={this.getPosts} 
                     dbHit={this.state.posts} 
                     nonSpec
                   hitType="posts" />
                 }
             }} />
-            <Route path="/new-post" render={(props) => <NewPost new /> } />
-            <Route path="/edit-post" render={(props) => <NewPost edit /> } />
-            <Route component={Main} />
+            {/* <Route />
+            <Route /> */}
+            <Route path="/new-post" 
+              render={
+                (props) => 
+                  <NewPost 
+                    new 
+                    user={this.state.uId} 
+                  username={this.state.uNam} /> 
+              } 
+            />
+            <Route path="/edit-post" 
+              render={
+                (props) => 
+                  <NewPost 
+                    edit 
+                    user={this.state.uId} 
+                  username={this.state.uNam} /> 
+              } 
+            />
+            <Route render={(props) => <Main user={this.state.uId} username={this.state.uNam} />} />
           </Switch>
         </div>
       </Router>

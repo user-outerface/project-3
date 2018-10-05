@@ -65,7 +65,9 @@ export class Main extends Component {
     };
     const commPass = {
       comment: {comment: this.state.comment},
-      id: idPass
+      id: idPass,
+      uId: this.props.user,
+      username: this.props.username
     };
     API.saveComm(commPass).then(res =>{
       window.location.reload();
@@ -138,8 +140,8 @@ export class Main extends Component {
                 className="carded-opaque text-white text-left rounded-0"
                 postname={post.title}
                 extchildren={<div>
-                  <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />
-                  <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />
+                  {this.props.user && <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />}
+                  {this.props.user && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />}
                 </div>}
               children={post.body ? post.body : null } />
 
@@ -161,13 +163,14 @@ export class Main extends Component {
                 </div> : <Comms key={comms._id}
                     id={comms._id} 
                     edigo={this.state.ediGo}
+                    user={this.props.user}
                   onClickPass={() => this.deleteComm(comms._id, post._id)}>
                   {comms.comment}
-                  <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />
+                  {this.props.user && <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 
-              <AnchorTag children="New Comment" onClick={this.showField} />
+              {this.props.user && <AnchorTag children="New Comment" onClick={this.showField} />}
               {this.state.comGo === "true" &&
                 <div>
                   <TextLay hclext="ml-2"
@@ -185,7 +188,7 @@ export class Main extends Component {
           
           {/* End mapping of post */}
 
-          <AnchorTag href={"/new-post/" + genreGiver} children="New Post" />
+          {this.props.user && <AnchorTag href={"/new-post/" + genreGiver} children="New Post" />}
         </section>
       </div>
     );

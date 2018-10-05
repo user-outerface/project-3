@@ -18,6 +18,13 @@ export default {
         return axios.get("/api/post");
     },
 
+    getUserPosts: function(id){
+        const query = {
+            _id: id
+        };
+        return axios.get("/api/post", {params: query});
+    },
+
     getSomePosts: function(genSwitch){
         return axios.get("/api/post/some/" + genSwitch);
     },
@@ -60,6 +67,13 @@ export default {
 
     getComms: function(){
         return axios.get("/api/comm");
+    },
+
+    getUserComms: function(id){
+        const query = {
+            _id: id
+        };
+        return axios.get("/api/comm", {params: query})
     },
     
     saveComm: function(commData){
