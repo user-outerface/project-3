@@ -8,11 +8,11 @@ const SignModal = props => {
     let modInput;
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
-        modMessage = "Login Shtuffs Here"
+        modMessage = "Welcome Back, Enjoy Your Stay..."
         modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
-        modMessage = "Sign Up Shtuffs Here!";
+        modMessage = "Welcome to IntroNerded Forums!";
         modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
     } else {
         modSignIn = props.modSignIn ? props.modSignIn : null;
@@ -31,8 +31,8 @@ const SignModal = props => {
                         {modInput}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="btn btn-primary">Submit</button>
-                        <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" className="sub-mod-btn">Submit</button>
+                        <button type="button" className="close-mod-btn" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>

@@ -1,47 +1,36 @@
-.card{
-    background: rgba(255, 255, 255, 0.910);
+.card {
+  background: rgba(255, 255, 255, 0.910);
 }
 
-.carded-opaque div{
-    background: rgba(44, 40, 39, 0.384);
-    border: 0.3px solid rgba(189, 187, 187, 0.253);
-    border-radius: 10px;
-    margin:2px;
-    color: #fff8f8;
-    padding: 10px;
-      position: relative;
-      display: -ms-flexbox;
-      display: flex;
-      -ms-flex-direction: column;
-      flex-direction: column;
-      min-width: 0;
-      word-wrap: break-word;
-      background-clip: border-box;
+.carded-opaque div {
+  background: rgba(44, 40, 39, 0.384);
+  border: 0.3px solid rgba(189, 187, 187, 0.253);
+  border-radius: 10px;
+  margin: 2px;
+  color: #fff8f8;
+  padding: 10px;
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-clip: border-box;
 }
 
 section .carded-opaque {
-    background-color: rgba(106, 114, 114, 0);
-    border: 0.3px solid rgba(10, 10, 10, 0.37);
-    border-radius: 10px;
-    margin:10px;
-    color: #fff8f8;
-    -webkit-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
-    box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+  background-color: rgba(106, 114, 114, 0);
+  border: 0.3px solid rgba(10, 10, 10, 0.37);
+  border-radius: 10px;
+  margin: 10px;
+  color: #fff8f8;
+  -webkit-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
 }
-
 
 .post-text-prim {
-color: blue;
-margin: 20px;
+  color: blue;
+  margin: 20px;
 }
-/* 
-.carded-opaque div{
-  background-color: antiquewhite;
-  border-radius: 10px;
-}
-section .carded-opaque {
-  background-color: rgb(211, 134, 35);
-  border-radius: 10px;
-  margin:10px;
-} */
