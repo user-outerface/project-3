@@ -262,7 +262,8 @@ class App extends Component {
                   username={this.state.uNam} /> 
               } 
             />
-            <Route render={(props) => <Main user={this.state.uId} username={this.state.uNam} />} />
+            {/* <Route path="/images" /> */}
+            {/* <Route render={(props) => <Main user={this.state.uId} username={this.state.uNam} />} /> */}
           </Switch>
         </div>
         </section>
