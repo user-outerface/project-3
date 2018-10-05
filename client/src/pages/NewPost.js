@@ -97,7 +97,7 @@ export class NewPost extends Component {
   render() {
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome!</h3>
+        {/* <h3 className="my-1 text-white">Welcome!</h3> */}
         {this.props.new ?
           <ContentLay 
             postChange={this.postChange}
