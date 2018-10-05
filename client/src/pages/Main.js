@@ -121,8 +121,6 @@ export class Main extends Component {
     };
     return (
       <div className="Page">
-        <h3 className="my-1 text-white">Welcome!</h3>
-
         <section className="mb-3">
 
           {/*This maps all posts within a given genre*/}
@@ -147,8 +145,8 @@ export class Main extends Component {
                 className="carded-opaque text-white text-left rounded-0"
                 postname={post.title}
                 extchildren={<div>
-                  {this.props.user === post.uId && <AnchorTag href={"/edit-post/tbph&idn" + post._id} children="Edit" editable="true" />}
-                  {this.props.user === post.uId && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} children="Delete" />}
+                  {this.props.user === post.uId && <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />}
+                  {this.props.user === post.uId && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} anchClass="del-btn" children="Delete" />}
                 </div>}
               children={post.body ? post.body : null } />
 
@@ -188,7 +186,7 @@ export class Main extends Component {
                     textarea="true"
                     placeholder="Comment (expandable)"
                   name="comment" />
-                  <Button children="Submit" onClick={this.commSubmit} />
+                <Button className="sub-btn" children="Submit" onClick={this.commSubmit} />
                 </div>
               }
             </section>
@@ -196,7 +194,7 @@ export class Main extends Component {
           
           {/* End mapping of post */}
 
-          {this.props.user && <AnchorTag href={"/new-post/" + genreGiver} children="New Post" />}
+          {this.props.user && <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
         </section>
       </div>
     );

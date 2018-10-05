@@ -160,6 +160,13 @@ class App extends Component {
     window.location = pathing;
   };
 
+
+
+
+
+
+  
+
   render() {
     console.log(this.state.posts);
     const postPass = window.location.pathname.split("/");
@@ -174,8 +181,25 @@ class App extends Component {
     };
     return (
       <Router>
+
+        <section>
+
+          <div className="crossfade" >
+
+            <figure></figure>
+
+            <figure></figure>
+
+            <figure></figure>
+
+            <figure></figure>
+
+            <figure></figure>
+
+          </div>
+
         <div className="App">
-          <h1 className="text-white">hi! {this.state.uNam}</h1>
+
           <NavHead 
             sChange={this.searchChange} 
             sValue={this.state.searchQ} 
@@ -183,7 +207,7 @@ class App extends Component {
             sName="searchQ"
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
-          <h3 className="my-1 title">Welcome to Anime Forum {this.props.dbHit}</h3>
+          <h3 className="my-1 title">Welcome to Forum's General {this.props.dbHit}</h3>
           <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} login={this.state.uNam} logout={this.userOut} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
@@ -241,6 +265,7 @@ class App extends Component {
             <Route render={(props) => <Main user={this.state.uId} username={this.state.uNam} />} />
           </Switch>
         </div>
+        </section>
       </Router>
     );
   };
