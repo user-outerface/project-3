@@ -77,6 +77,7 @@ export default {
     },
     
     saveComm: function(commData){
+        console.log(commData);
         return axios.post("/api/comm", commData);
     },
 
