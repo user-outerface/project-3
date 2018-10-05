@@ -12,11 +12,10 @@ export const NavHead = props => {
         <div className="da-head-navs top-nav my-1">
             <ul className="nav">
                 <li className="nav-item">  
-                        <img src="../../images/Sakura.png" alt="food" height="200px" />
+                        <div className="food-img" children="." />
                 </li>
                 <li className="gif-item">
                     <GifList gifs={props.gifs} />
-                    <SearchBar onChange={props.onChange} />
                 </li>
                 <li className="nav-item ml-auto">
                  
