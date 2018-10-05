@@ -5,6 +5,7 @@ import GifList from '../Giffy/GifList';
 import SearchBar from '../Giffy/SearchBar';
 import Button from '../Button/Button';
 import TextIn from '../SearchForm/TextIn';
+import Sakura from "../../images/Sakura.png";
 import './Nav.css';
 
 export const NavHead = props => {
@@ -12,10 +13,11 @@ export const NavHead = props => {
         <div className="da-head-navs top-nav my-1">
             <ul className="nav">
                 <li className="nav-item">  
-                        <div className="food-img" children="." />
+                        <img src={Sakura} alt="food" className="img-fluid food-img" />
                 </li>
                 <li className="gif-item">
                     <GifList gifs={props.gifs} />
+                    {/* <SearchBar onChange={props.onChange} /> */}
                 </li>
                 <li className="nav-item ml-auto">
                  
