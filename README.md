@@ -42,14 +42,9 @@ Make sure you're in the proper directory for the installation of the needed pack
 
 # **To Do**
 
-<!-- * implement full functionality with comments
-* component switch on comment edit
-* pathing for genre from all -->
 * Implement giphy api responding to genre of forum 
-* Implement login with google auth and custom login for the site.
-* If google auth is too hard, just to normal login
+* comment history for users
 * add markdown functionality with comments/posts
-* possible picture link or even any link shown on hover
 * Styling
 * Clean up post area (Make it look more forum...y, make it look more forumy)
 * Code cleanup, eg: get rid of console logs, redundant code, etc.
