@@ -132,6 +132,8 @@ export class Main extends Component {
             if(this.props.uList && posts.deleted === "true"){return null};
             return (<section key={posts._id}>
               <Carded 
+                id={this.props.hitType === "genres" ? "genre-" + posts._id : ""}
+                cardname={this.props.hitType === "genres" ? "Genre" : ""}
                 className="carded-opaque text-white text-left rounded-0"
                 postname={posts.title ? <Markdown source={`[${posts.title}](/posts/t&gq=${posts.genre}/tpm&n=${posts._id})`} /> /*<AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> */ : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
               children={posts.username ? `By "${posts.username}", Posted: ${moment(posts.dateAdded).format("MMMM Do YYYY, h:mm a")}` : null } />

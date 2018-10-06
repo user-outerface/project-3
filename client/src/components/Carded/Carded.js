@@ -14,21 +14,25 @@ export const Carded = props => {
     };
     return(
     <section className={classext} {...props}>
-        {props.id ? (<div className="card-header">
+        {props.id !== "" ? (<div className="card-header">
             {props.cardname ? props.cardname : null}
             {props.postname ? props.postname : null}
             {pubArt ? (<div className="published">Published: {pubArt}</div>) : null}
         </div>) : ( <div> Title:
-                {props.cardname ? <h2 className="card-header">
+                {props.cardname !== "" ? <h2 className="card-header">
                     {props.postname}
                 </h2>: null}
                 {props.postname ? <div>{props.postname}</div> : null}
         </div>      
         )}
-        <div>
-            <div className="post-text-prim">{props.children}</div>
-        </div>
-        {props.extchildren && props.extchildren}
+        {!props.cardname && 
+            <section>
+                <div>
+                    <div className="post-text-prim">{props.children}</div>
+                </div>
+                {props.extchildren && props.extchildren}
+            </section>
+        }
     </section>
 )};
 
