@@ -170,8 +170,9 @@ export class Main extends Component {
                     edigo={this.state.ediGo}
                     user={this.props.user}
                     deletgo={this.props.user === comms.uId ? "true" : ""}
+                    comms={comms.comment}
                   onClickPass={() => this.deleteComm(comms._id, post._id)}>
-                  {comms.comment}
+                  
                   {this.props.user === comms.uId && <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
                 </Comms>)}) : null}
               {/* End mapping of comments */}
