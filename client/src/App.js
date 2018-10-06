@@ -18,7 +18,8 @@ class App extends Component {
       uId: "",
       uNam: "",
       user: "",
-      pwd: ""
+      pwd: "",
+      userComms: ""
     };
   };
 
@@ -37,10 +38,14 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState){
     const buildPass = window.location.pathname.split("/");
+    let gifGenre = "";
+    for(let i = 0; i < buildPass.length; i++){ 
+      if(buildPass[i].includes("t&gq=")){
+        gifGenre = buildPass[i].substr(buildPass[i].indexOf("=") + 1);
+      };
+    }
     if(prevState.path.join() !== buildPass.join()){
-      this.setState({
-        path: buildPass
-      })
+      this.handleTermChange(gifGenre, buildPass);
     };
   };
 
@@ -53,11 +58,20 @@ class App extends Component {
       });
   };
 
-  getUserPosts = (uId) =>{
-    API.getUserPosts(uId)
+  getUserPosts = () =>{
+    API.getUserPosts()
       .then(res =>{
         this.setState({
           posts: [res.data]
+        });
+      });
+  };
+
+  getUserComments = () =>{
+    API.getUserComms()
+      .then(res =>{
+        this.setState({
+          userComms: [res.data]
         });
       });
   };
@@ -146,13 +160,20 @@ class App extends Component {
       });
   };
 
-  handleTermChange = (event) => {
-    API.handleTermChange(event.target.value)
-      .then(res => {
-        this.setState({
-          gifs: [res]
+  handleTermChange = (passer, builder) => {
+    if(passer === ""){
+      this.setState({
+        path: builder
+      });
+    } else {;
+      API.handleTermChange(passer)
+        .then(res => {
+          this.setState({
+            gifs: [res],
+            path: builder
         });
       });
+    }
   };
 
   changeLocs = (event) =>{
@@ -168,7 +189,6 @@ class App extends Component {
   
 
   render() {
-    console.log(this.state.posts);
     const postPass = window.location.pathname.split("/");
     let postSwitch = null;
     for(let i = 0; i < postPass.length; i++){
@@ -211,7 +231,7 @@ class App extends Component {
           <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} login={this.state.uNam} logout={this.userOut} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
-            <Route exact path="/" render={(props) =>  <Main user={this.state.uId} username={this.state.uNam} populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec />} />
+            <Route exact path="/" render={(props) =>  <Main user={this.state.uId} username={this.state.uNam} populate={this.getGenres} dbHit={this.state.genres} hitType="genres" nonSpec="true" />} />
             <Route 
               path="/posts/" 
               render={(props) =>{
@@ -228,7 +248,7 @@ class App extends Component {
                     user={this.state.uId}
                     populate={this.getPosts} 
                     dbHit={this.state.posts} 
-                    nonSpec
+                    nonSpec="true"
                   hitType="posts" />
                 }
             }} />
@@ -238,12 +258,21 @@ class App extends Component {
                   user={this.state.uId}
                   dbHit={this.state.posts}
                   populate={this.getUserPosts}
-                  nonSpec 
+                  nonSpec="true"
                   uList
                 hitType="user-posts" />
               }
             } />
-            {/* <Route /> */}
+            <Route exact path="/user/comms"
+              render={(props) =>{
+                return <Main username={this.state.uNam}
+                  user={this.state.uId}
+                  dbHit={this.state.userComms}
+                  populate={this.getUserComments}
+                  nonSpec="comms"
+                hitType="user-comms" />
+              }
+            } />
             <Route path="/new-post" 
               render={
                 (props) => 

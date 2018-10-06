@@ -42,9 +42,6 @@ Make sure you're in the proper directory for the installation of the needed pack
 
 # **To Do**
 
-* Implement giphy api responding to genre of forum 
-* comment history for users
-* add markdown functionality with comments/posts
 * Styling
 * Clean up post area (Make it look more forum...y, make it look more forumy)
 * Code cleanup, eg: get rid of console logs, redundant code, etc.
