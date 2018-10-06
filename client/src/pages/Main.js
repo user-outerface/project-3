@@ -5,6 +5,7 @@ import Carded from "../components/Carded";
 import Comms from "../components/Comments/Comms"
 // import Saved from "./Posts";
 import API from "../utils/API";
+import Markdown from "react-markdown";
 import "./pages.css";
 import { AnchorTag } from '../components/AnchorTag/AnchorTag';
 
@@ -131,7 +132,7 @@ export class Main extends Component {
             return (<section key={posts._id}>
               <Carded 
                 className="carded-opaque text-white text-left rounded-0"
-                postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+            postname={posts.title ? <Markdown source={`[${posts.title}](/posts/t&gq=${posts.genre}/tpm&n=${posts._id})`} /> /*<AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> */ : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
               children={posts.body ? posts.body : null } />
               {this.props.hitType === "user-posts" && <AnchorTag onClick={() =>{this.deleterPost(posts._id)}} children="Delete" />}
             </section>)
@@ -143,12 +144,12 @@ export class Main extends Component {
             return <section key={post._id}>
               <Carded 
                 className="carded-opaque text-white text-left rounded-0"
-                postname={post.title}
+                postname={<Markdown source={post.title} />}
                 extchildren={<div>
                   {this.props.user === post.uId && <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />}
                   {this.props.user === post.uId && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} anchClass="del-btn" children="Delete" />}
                 </div>}
-              children={post.body ? post.body : null } />
+              children={post.body ? <Markdown source={post.body} /> : null } />
 
               {/*The Below is responsible for mapping the comments 
               And swapping between editing or viewing */}

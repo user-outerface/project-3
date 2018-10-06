@@ -37,10 +37,14 @@ class App extends Component {
 
   componentDidUpdate(prevProps, prevState){
     const buildPass = window.location.pathname.split("/");
+    let gifGenre = "";
+    for(let i = 0; i < buildPass.length; i++){ 
+      if(buildPass[i].includes("t&gq=")){
+        gifGenre = buildPass[i].substr(buildPass[i].indexOf("=") + 1);
+      };
+    }
     if(prevState.path.join() !== buildPass.join()){
-      this.setState({
-        path: buildPass
-      })
+      this.handleTermChange(gifGenre, buildPass);
     };
   };
 
@@ -146,13 +150,21 @@ class App extends Component {
       });
   };
 
-  handleTermChange = (event) => {
-    API.handleTermChange(event.target.value)
-      .then(res => {
-        this.setState({
-          gifs: [res]
+  handleTermChange = (passer, builder) => {
+    if(passer === ""){
+      this.setState({
+        path: builder
+      });
+    } else {;
+      API.handleTermChange(passer)
+        .then(res => {
+          console.log("gif res",res);
+          this.setState({
+            gifs: [res],
+            path: builder
         });
       });
+    }
   };
 
   changeLocs = (event) =>{

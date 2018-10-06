@@ -9,7 +9,7 @@ export default {
     // },
 
     handleTermChange(term) {
-        return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&limit=1`);
+        return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&rating=pg-13`);
     },
 
     getPosts: function(){
