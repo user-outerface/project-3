@@ -10,6 +10,7 @@ const ContentLay = (props) =>{
         <section className="mb-3">              
             <Carded id="new-post" 
                 cardname="New Post" 
+                singlelady
             className="carded-opaque">
                 <TextLay headName="Genre"
                     hclext="ml-2"

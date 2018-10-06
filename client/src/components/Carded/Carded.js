@@ -25,7 +25,7 @@ export const Carded = props => {
                 {props.postname ? <div>{props.postname}</div> : null}
         </div>      
         )}
-        {!props.cardname && 
+        {(props.singlelady && props.genrelay === undefined) && 
             <section>
                 <div>
                     <div className="post-text-prim">{props.children}</div>
