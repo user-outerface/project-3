@@ -4,6 +4,10 @@ Ronnie Barrio
 Jared Bryce
 Craig Wright
 
+# Link to Project
+
+[Link](https://fathomless-lake-80884.herokuapp.com/)
+
 # New Technologies used
 
 * react-markdown
@@ -27,6 +31,13 @@ Craig Wright
 # Purpose
 
 The purpose of this assignment was to build a functional web forum with the MERN stack. This forum saves user posts and comments with full CRUD functionality.
+
+# Guest
+
+If you don't want to make a user, then just sign in with one of the usernames below:
+
+* name: guest, password: guest
+* name: guest1, password: guest1
 
 ## NPM
 
