@@ -189,7 +189,7 @@ export class Main extends Component {
                   name="comment" />
                 <Button className="sub-btn" children="Submit" onClick={this.commSubmit} />
                 </div>
-              } : null}
+              }
             </section>
           }) : null}
           
