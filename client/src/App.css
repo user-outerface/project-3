@@ -22,6 +22,12 @@
   margin-top: -110px;
 } */
 
+.title-for-back{
+  /* border-radius: 50%;
+  background-image: radial-gradient(rgba(0, 0, 0, 0.61) 60%, rgba(0, 0, 0, 0.4) 70%, rgba(0, 0, 0, 0.01) 80%); */
+  z-index: 88
+}
+
   .title {
      margin-top: -110px;
     background: url('https://images.wallpaperscraft.com/image/glare_color_bright_colorful_background_19980_1920x1080.jpg');
@@ -40,6 +46,7 @@
     -moz-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    z-index: 86;
     
 
   }
