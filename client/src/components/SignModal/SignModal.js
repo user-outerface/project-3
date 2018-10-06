@@ -33,7 +33,7 @@ const SignModal = props => {
                     </div>
                     <div className="modal-footer">
                         <Button className="sub-mod-btn" onClick={props.onClick} >Submit</Button>
-                        <Button type="button" className="close-mod-btn" data-dismiss="modal">Close</Button>
+                        <Button attribsext={{"type": "button", "data-dismiss": "modal"}} className="close-mod-btn">Close</Button>
                     </div>
                 </div>
             </div>
