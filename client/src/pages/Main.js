@@ -134,7 +134,7 @@ export class Main extends Component {
               <Carded 
                 id={this.props.hitType === "genres" ? "genre-" + posts._id : ""}
                 cardname={this.props.hitType === "genres" ? "Genre" : ""}
-                className="carded-opaque text-white text-left rounded-0"
+                className="carded-opaque text-white text-left"
                 postname={posts.title ? <Markdown source={`[${posts.title}](/posts/t&gq=${posts.genre}/tpm&n=${posts._id})`} /> /*<AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> */ : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
               children={posts.username ? `By "${posts.username}", Posted: ${moment(posts.dateAdded).format("MMMM Do YYYY, h:mm a")}` : null } />
               {this.props.hitType === "user-posts" && <div>
@@ -149,7 +149,7 @@ export class Main extends Component {
           {((res !== undefined) && (!this.props.nonSpec)) ? res && res.map(post => {
             return <section key={post._id}>
               <Carded 
-                className="carded-opaque text-white text-left rounded-0"
+                className="carded-opaque text-white text-left"
                 postname={<Markdown source={post.title} />}
                 extchildren={this.props.user === post.uId ? <div>
                   <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchclass="edit-btn" classext="edit-btn" children="Edit" editable="true" />

@@ -20,9 +20,9 @@
 }
 
 section .carded-opaque {
-  background-color: rgba(106, 114, 114, 0);
+  background-color: rgba(71, 76, 76, 0.774);
   border: 0.3px solid rgba(10, 10, 10, 0.37);
-  border-radius: 10px;
+  border-radius: 5px 5px 0 0;
   margin: 10px;
   color: #fff8f8;
   -webkit-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);

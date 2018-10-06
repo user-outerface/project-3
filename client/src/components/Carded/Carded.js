@@ -8,7 +8,7 @@ export const Carded = props => {
         pubArt = props.published;
     };
     if(props.classext){
-        classext="card col-8 mx-auto" + props.classext
+        classext="card col-8 mx-auto " + props.classext
     } else {
         classext="card col-8 mx-auto"
     };
