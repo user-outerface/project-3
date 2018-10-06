@@ -52,28 +52,19 @@ module.exports = {
     },
 
     signup: function(req, res){
-        if(req.body.username &&
-            req.body.password){
-                var userData = {
-                    username: req.body.username,
-                    password: req.body.password
-                };
-                try{
-                    db.Users
-                        .create(userData, function(err, user){
-                            if(err){
-                                console.log(err);
-                                res.json("invalid");
-                            } else {
-                                req.session.userId = user._id;
-                                req.session.userNam = user.username;
-                            };
-                        }).catch(err =>{
-                            res.status(422).json(err);
-                        });
-                } catch(err){
-                    res.json("/login");
-                };
-            };
+        var userData = {
+            username: req.body.username,
+            password: req.body.password
+        };
+        db.Users
+            .create(userData)
+            .then(user =>{
+                req.session.userId = user._id;
+                req.session.userNam = user.username;
+                res.json("/");
+            })
+            .catch(err =>{
+                res.status(422).json(err);
+            }); 
     }
 };
