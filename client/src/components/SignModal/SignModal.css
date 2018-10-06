@@ -36,12 +36,13 @@
 }
 
 .modal-header {
-    color: rgb(248, 92, 183);
-    text-shadow: 1px 1px 5px rgb(17, 255, 235);
+    padding-left: 37px;
+    color: rgb(255, 227, 195);
+    text-shadow: 2px 2px 5px rgb(17, 255, 235);
     background-image: url('https://wallpapertag.com/wallpaper/full/9/a/9/722889-best-neon-colors-wallpaper-2560x1440.jpg');
     border-radius: 10px;
     border-radius: 10px;
-    border: 5px solid rgb(248, 92, 183);
+    border: 5px solid rgb(92, 248, 183);
     border-width: 5px 5px 5px 5px;
 }
 

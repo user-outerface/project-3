@@ -152,7 +152,7 @@
     font-family: Helvetica Neue;
     font-weight: initial;
     font-style: normal;
-    text-align: center;
+    text-align: title-2;
     margin: 0px 0px 0px 0px
 }
 
@@ -172,4 +172,28 @@
 
 .or{
     color: black;
+}
+
+.title-2{
+       position: relative;
+       margin-left: auto;
+       margin-right: auto;
+       width: 80%;
+  font-family: Impact,
+  Haettenschweiler,
+  'Arial Narrow Bold',
+  sans-serif;
+  color: whitesmoke;
+  text-shadow: .5px 2px 3px rgb(70, 205, 247),
+  .5px 2px 25px rgb(92, 248, 248),
+  .5px 2px 25px rgb(248, 92, 183);
+}
+
+
+.title-2 h1 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
