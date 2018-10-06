@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
-// import TextLay from '../components/SearchForm/TextLay';
-// import Button from "../components/Button/Button";
-// import Carded from "../components/Carded";
 import ContentLay from "../components/ContentLay/ContentLay";
-// import AnchorTag from "../components/AnchorTag/AnchorTag";
-// import Saved from "./Posts";
-// import SignModal from "../components/SignModal/SignModal";
 import API from "../utils/API";
 import "./pages.css";
 
@@ -99,7 +93,6 @@ export class NewPost extends Component {
   render() {
     return (
       <div className="Page">
-        {/* <h3 className="my-1 text-white">Welcome!</h3> */}
         {this.props.new ?
           <ContentLay 
             postChange={this.postChange}

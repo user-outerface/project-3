@@ -5,7 +5,6 @@ import SignModal from "../SignModal/SignModal";
 import AnchorTag from "../AnchorTag/AnchorTag";
 import "./Nav.css";
 
-//The Links in this component will not work
 export const Nav = props => {
     return(
         <div className="da-navs my-1">
@@ -36,9 +35,6 @@ export const Nav = props => {
                         Saved
                     </Link>
                 </li>
-                {/* <li className="title-2">
-                    <h2>IntroNerded Forums</h2>
-                </li> */}
                 <li className="ml-auto mr-1 d-flex align-items-center">
                     {props.login !== "" ? <DropAc logout={props.logout} login={props.login} /> : (
                         <div>

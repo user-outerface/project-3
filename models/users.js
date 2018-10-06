@@ -31,25 +31,12 @@ UsersSchema.pre('save', function(next){
             user.password = hash;
             next();
         })
-    })
-    // try{
-    //     user.password = hashPassword(user.password);
-    // } catch(err){
-    //     next(err);
-    // };
-    // bcrypt.hash(user.password, 10, function(err, hash){
-    //     if(err){
-    //         return next(err);
-    //     };
-    //     user.password = hash;
-    //     next();
-    // });
+    });
 });
 
 //authentication 
 
 UsersSchema.statics.authenticate = function(username, password, callback){
-    // let hash = hashPassword(password);
     Users.findOne({username: username})
         .exec(function(err, user){
             if(err){
@@ -66,13 +53,6 @@ UsersSchema.statics.authenticate = function(username, password, callback){
                     return callback();
                 };
             });
-            // bcrypt.compare(password, user.password, function(err, result){
-            //     if(result === true) {
-            //         return callback(null, user);
-            //     } else {
-            //         return callback();
-            //     };
-            // });
         });
 };
 

@@ -217,8 +217,9 @@ export class Main extends Component {
                   onClickPass={() => this.deleteComm(comments._id, comments.post)}>
                     {this.props.user === comments.uId && <Button children="edit" onClick={() => this.ediGoChange(comments._id, comments.comment)} />}
                 </Comms>
-            }) : null}
-
+            }) : null
+          }
+          {/* End of mapping user comments */}
           {this.props.user && <AnchorTag anchClass="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
         </section>
       </div>

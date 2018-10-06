@@ -26,7 +26,6 @@ class App extends Component {
 
   componentDidMount(){
     const pathPass = window.location.pathname.split("/");
-    // API.getUserPosts("hello");
     API.getCreds().then(res =>{
       const {uId, uNam} = res.data;
       this.setState({
@@ -287,7 +286,6 @@ class App extends Component {
                   username={this.state.uNam} /> 
               } 
             />
-            {/* <Route path="/images" /> */}
             <Route render={(props) => <Main user={this.state.uId} username={this.state.uNam} />} />
           </Switch>
         </div>

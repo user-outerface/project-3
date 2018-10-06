@@ -9,9 +9,6 @@ router.route("/")
   .post(postController.create)
   .put(postController.update);
 
-// router.route("/user")
-//   .get(postController.findAll);
-
 router.route("/some/:genSwitch")
   .get(postController.findSome);
 
@@ -20,12 +17,5 @@ router.route("/scrubbed")
 
 router.route("/one/:id")
   .get(postController.findOne);
-
-// Matches with "/api/post/:id"
-// router
-//   .route("/:id")
-//   .get(postController.findById)
-//   .put(postController.update)
-//   .delete(postController.remove);
 
 module.exports = router;

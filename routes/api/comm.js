@@ -9,10 +9,6 @@ router.route("/")
 router.route("/:pId/:cId")
     .delete(commController.removeOne);
 
-// router
-//     .route("/:id")
-//     .delete(commController.removeOne);
-
 router
     .route("/many-del/:id")
     .delete(commController.removeMany);
