@@ -1,7 +1,6 @@
 import React from 'react';
 
 const GifItem = (image) => {
-    console.log(image.gif);
     return (
         <div>
             <div className="gif-item">
