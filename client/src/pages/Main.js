@@ -153,8 +153,8 @@ export class Main extends Component {
                       textarea="true"
                       placeholder="Comment (expandable)"
                     name="ediComm" />
-                    <Button children="Submit" onClick={() => this.updateComm(comms._id)} />
-                    <Button children="Cancel" onClick={() => window.location.reload()} />
+                    <Button className="comms-submit"  children="Submit" onClick={() => this.updateComm(comms._id)} />
+                    <Button className="comms-cancel"  children="Cancel" onClick={() => window.location.reload()} />
                 {/* If the state isn't set to allow the comment to be eidited, it gives the basic comment layout */}
                 </div> : <Comms key={comms._id}
                     id={comms._id} 
@@ -187,7 +187,7 @@ export class Main extends Component {
           
           {/* End mapping of post */}
 
-          <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />
+          <AnchorTag anchClass="new-pos" href={"/new-post/" + genreGiver} children="New Post" />
         </section>
       </div>
     );

@@ -141,7 +141,9 @@ class App extends Component {
             sName="searchQ"
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
-          <h1 className="title"> IntroNerded Forum's {this.props.dbHit}</h1>
+          <div className="title-div">
+              <h1 className="title"> IntroNerded Forum's {this.props.dbHit}</h1>
+          </div>
           <Nav />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>

@@ -1,22 +1,3 @@
-/* .nav-cust{
-    background: #3d3c3cb6;
-    color: rgb(230, 230, 230);
-    margin-bottom: 0;
-    margin-top: 0;
-    border-color: #3d3c3c;
-    height: 35px;
-} */
-
-/* .nav {
-    background-color: #2cf6879c;
-    border-color: #838181;
-    border-radius: 5px;
-    padding: 6px;
-    margin: 14px;
-} */
-
-
-
 .top-nav {
     background-color: #2cf68700;
     border-color: #2b2523;
@@ -64,8 +45,6 @@
     color: rgb(20, 20, 20);
 }
 
-
-
 .inactive:hover {
     border-color: #2b2523 !important;
     color: #aac8d1;
@@ -87,7 +66,7 @@
 .search-input {
     border-style: inset;
     border-radius: 20px;
-    margin-top: 100px;
+    margin-top: 140px;
     background-color: #36353bb2;
     color: white;
     text-shadow: 2px 2px black;
@@ -95,13 +74,13 @@
 }
 
 .search-btn {
-     border-style: inset;
+    border-style: inset;
     border-radius: 10px;
     margin-right: 4px;
     border-width: 2px;
     color: #fff8f8;
     background-color: #36353bb2;
-    margin-top: 100px;
+    margin-top: 140px;
 }
 
 .persona {
@@ -122,12 +101,6 @@
     border-radius: 20px;
     background-color: #36353b69;
 }
-/* 
-#active-cust {
-    background: #838181;
-    border-color: #2b2523;
-    color: #3d3c3c;
-} */
 
 #active-cust {
     backface-visibility: hidden;
@@ -137,7 +110,7 @@
     white-space: nowrap;
     background: rgba(0%, 0%, 0%, 0);
     border-radius: 10px;
-    border: 5px solid rgb(248, 92, 183);
+    border: 5px solid rgba(92, 248, 227, 0.836);
     border-width: 5px 5px 5px 5px;
     padding: 3px 10px 2px 10px;
     color: rgb(15, 15, 15);
@@ -172,25 +145,19 @@
     font-size: initial
 }
 
-.or{
+.or {
     color: black;
 }
 
-.title-2{
-       position: relative;
-       margin-left: auto;
-       margin-right: auto;
-       width: 80%;
-  font-family: Impact,
-  Haettenschweiler,
-  'Arial Narrow Bold',
-  sans-serif;
-  color: whitesmoke;
-  text-shadow: .5px 2px 3px rgb(70, 205, 247),
-  .5px 2px 25px rgb(92, 248, 248),
-  .5px 2px 25px rgb(248, 92, 183);
+.title-2 {
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    color: whitesmoke;
+    text-shadow: .5px 2px 3px rgb(70, 205, 247), .5px 2px 25px rgb(92, 248, 248), .5px 2px 25px rgb(248, 92, 183);
 }
-
 
 .title-2 h1 {
     margin: 0;
