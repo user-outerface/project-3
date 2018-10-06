@@ -12,13 +12,37 @@
   position: relative;
 }
 
-.title {
+/* .title {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: whitesmoke;
   text-shadow: .5px 2px 3px rgb(70, 205, 247),
   .5px 2px 25px rgb(92, 248, 248),
   .5px 2px 25px rgb(248, 92, 183);
-}
+  font-size: 500%; 
+  margin-top: -110px;
+} */
+
+  .title {
+     margin-top: -110px;
+    background: url('https://images.wallpaperscraft.com/image/glare_color_bright_colorful_background_19980_1920x1080.jpg');
+    background-repeat: repeat-x;
+    background-position: 0 0;
+    font-size: 65px;
+    text-transform: uppercase;
+    text-align: center;
+    font-family: mpact,
+    Haettenschweiler,
+    'Arial Narrow Bold',
+    sans-serif;
+    color: transparent;
+    -webkit-font-smoothing: antialiased;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+
+  }
 
 .btn {
   border-radius: 20px;
