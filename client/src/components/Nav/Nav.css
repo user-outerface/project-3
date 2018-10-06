@@ -72,6 +72,12 @@
     padding-left: 10px;
 }
 
+@media only screen and (max-width: 1500px){
+    .search-input{
+        display: none;
+    }
+};
+
 .search-btn {
     border-style: inset;
     border-radius: 10px;

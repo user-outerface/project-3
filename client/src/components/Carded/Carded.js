@@ -18,16 +18,17 @@ export const Carded = props => {
             {props.cardname ? props.cardname : null}
             {props.postname ? props.postname : null}
             {pubArt ? (<div className="published">Published: {pubArt}</div>) : null}
-        </div>) : ( <div> Genre:
+        </div>) : ( <div> Title:
                 {props.cardname ? <h2 className="card-header">
                     {props.postname}
                 </h2>: null}
                 {props.postname ? <div>{props.postname}</div> : null}
         </div>      
         )}
-            <div>Post:
+        <div>
             <div className="post-text-prim">{props.children}</div>
         </div>
+        {props.extchildren && props.extchildren}
     </section>
 )};
 

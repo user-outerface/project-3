@@ -221,7 +221,7 @@ class App extends Component {
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
           <div className="title-div">
-              <h1 className="title"> IntroNerded Forum's</h1>
+              <h1 className="title">IntroNerded Forum's</h1>
           </div>
           <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} login={this.state.uNam} logout={this.userOut} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
@@ -291,7 +291,7 @@ class App extends Component {
         </div>
 
         <Footer classext="foot">
-          2018 &copy; Copywrite - Craig Wright | Jared Bryce | Ronnie Bario	
+          2018 &copy; Copyright - Craig Wright | Jared Bryce | Ronnie Bario	
         </Footer>
         </section>
       </Router>

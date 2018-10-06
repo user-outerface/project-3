@@ -1,6 +1,6 @@
 .bg-opaque {
     background: rgba(51, 51, 51, 0.767);
-    color: rgb(167, 164, 164);
+    color: rgb(219, 214, 214);
     padding: 5px;
     margin: 5px auto 5px auto;
     border-color: #1d1d6e86;
@@ -8,10 +8,10 @@
 }
 
 .bg-opaque:focus {
-    background: rgba(129, 126, 126, 0.192);
+    background: rgb(44, 43, 43);
     border-color: rgba(175, 162, 162, 0.568);
     box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px rgba(126, 239, 104, 0.6);
-    color: rgb(221, 214, 214);
+    color: rgb(241, 234, 234);
 }
 
 .bg-opaque::placeholder {

@@ -2,7 +2,7 @@ import React from 'react';
 import "./AnchorTag.css";
 
 export const AnchorTag = props => {
-    let classes = props.anchClass;
+    let classes = props.anchclass;
     let classext = props.classext;
     return(
         <div className={classext ? classext : ""} {...props}>

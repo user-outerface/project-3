@@ -32,7 +32,7 @@ export const Nav = props => {
                             window.location.pathname === "/posts" ? "active-cust" : ""
                         }
                     >
-                        Saved
+                        All
                     </Link>
                 </li>
                 <li className="ml-auto mr-1 d-flex align-items-center">

@@ -1,6 +1,6 @@
 import React from "react";
 import GifList from '../Giffy/GifList';
-import Button from '../Button/Button';
+// import Button from '../Button/Button';
 import TextIn from '../SearchForm/TextIn';
 import Sakura from "../../images/Sakura.png";
 import './Nav.css';
@@ -18,9 +18,10 @@ export const NavHead = props => {
                 <li className="nav-item ml-auto">
                  
                 </li>
-                <li className="search-button">
+                {/* <li className="search-button">
+                    for later
                     <Button onClick={props.sExecute} className="search-btn">Search</Button>
-                </li>
+                </li> */}
                 <li className="text-in"> 
                     <TextIn name={props.sName} value={props.sValue} onChange={props.sChange} className="search-input" />
                 </li>

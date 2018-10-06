@@ -1,6 +1,9 @@
 #root {
-  margin-right: 10%;
-  margin-left: 10%;
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 10%;
+  padding-right: 10%;
 }
 
 .App {
@@ -11,11 +14,19 @@
 .title {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: rgb(248, 82, 96);
+  text-align: center;
   text-shadow: 6px 6px 3px rgb(0, 0, 0),
   4px 4px 25px rgb(92, 248, 248),
   4px 6px 25px rgb(92, 248, 235);
-  font-size: 550%; 
+  font-size: 5.5em; 
   margin-top: -120px;
+}
+
+@media only screen and (max-width: 750px){
+  .title{
+    font-size: 3em;
+    clear: both;
+  }
 }
 
 
