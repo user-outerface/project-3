@@ -93,14 +93,14 @@
     margin-top: -110px;
 }
 
-.gif-item {
+/* .gif-item {
     margin-top: 100px;
 }
 
 #gif-input input {
     border-radius: 20px;
     background-color: #36353b69;
-}
+} */
 
 #active-cust {
     backface-visibility: hidden;

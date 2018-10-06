@@ -1,0 +1,15 @@
+.image-gif{
+    max-width: 160px;
+    max-height: 160px;
+    border-radius: 100px;
+     border: 5px solid rgba(92, 248, 183, 0.685);
+    border-width: 7px;
+    margin-left: 25px;
+}
+
+#gif-input input {
+    border-radius: 20px;
+    background-color: #36353b69;
+    
+}
+

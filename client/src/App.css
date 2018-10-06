@@ -34,7 +34,7 @@
 
 
  .crossfade>figure {
-   animation: imageAnimation 45s linear infinite 0s;
+   animation: imageAnimation 75s linear infinite 0s;
    backface-visibility: hidden;
    background-size: cover;
    background-position: center center;
@@ -51,29 +51,29 @@
 
 
 .crossfade>figure:nth-child(1) {
-  background-image: url('https://wallpapertag.com/wallpaper/full/9/a/9/722889-best-neon-colors-wallpaper-2560x1440.jpg');
+  background-image: url('/bg-images/722889-best-neon-colors-wallpaper-2560x1440.jpg');
 }
 
  .crossfade>figure:nth-child(2) {
-   animation-delay: 9s;
-   background-image: url('https://i.imgur.com/29XLRVb.jpg');
+   animation-delay: 15s;
+   background-image: url('/bg-images/29XLRVb.jpg');
   
 }
  .crossfade>figure:nth-child(3) {
-   animation-delay: 18s;
-   background-image: url('http://static.minitokyo.net/downloads/24/36/506824.jpg');
+   animation-delay: 30s;
+   background-image: url('/bg-images/506824.jpg');
   
 }
 
 .crossfade>figure:nth-child(4) {
- animation-delay: 27s;
- background-image: url('https://img.fireden.net/v/image/1531/45/1531458268162.jpg');
+ animation-delay: 45s;
+ background-image: url('/bg-images/1531458268162.jpg');
 
 }
 
 .crossfade>figure:nth-child(5) {
-   animation-delay: 36s;
-   background-image: url('http://www.itaniumsolutions.org/pics/max/22/220743_tokyo-wallpaper-hd.jpg');
+   animation-delay: 50s;
+   background-image: url('/bg-images/220743_tokyo-wallpaper-hd.jpg');
 }
 
 
