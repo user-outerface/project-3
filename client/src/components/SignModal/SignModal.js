@@ -9,24 +9,17 @@ const SignModal = props => {
     let modInput;
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
-        modMessage = "Login Shtuffs Here"
+        modMessage = "Welcome Back, Enjoy Your Stay..."
         modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
-        modMessage = "Sign Up Shtuffs Here!";
+        modMessage = "Welcome to IntroNerded Forums!";
         modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else {
         modSignIn = props.modSignIn ? props.modSignIn : null;
         modMessage = props.modMessage ? props.modMessage : null;
         modInput = props.modInput ? props.modInput : null;
     };
-    // if(props.submitL){
-    //     btFunk = props.submitL;
-    // } else if (props.submitS){
-    //     btFunk = props.submitS;
-    // } else {
-    //     btFunk = null;
-    // };
     return(
         <div className={modSignIn !== null ? "modal signs" : "modal"} id={props.modId} tabIndex="-1" role="dialog">
             <div className="modal-dialog" role="document">
@@ -39,8 +32,8 @@ const SignModal = props => {
                         {modInput}
                     </div>
                     <div className="modal-footer">
-                        <Button className="btn btn-primary" onClick={props.onClick} >Submit</Button>
-                        <Button type="button" className="btn btn-secondary" data-dismiss="modal">Close</Button>
+                        <Button className="sub-mod-btn" onClick={props.onClick} >Submit</Button>
+                        <Button type="button" className="close-mod-btn" data-dismiss="modal">Close</Button>
                     </div>
                 </div>
             </div>

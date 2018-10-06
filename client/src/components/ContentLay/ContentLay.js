@@ -2,6 +2,8 @@ import React from 'react';
 import TextLay from '../SearchForm/TextLay';
 import Button from "../Button/Button";
 import Carded from "../Carded";
+import "./content.css";
+
 
 const ContentLay = (props) =>{
     return(
@@ -32,8 +34,8 @@ const ContentLay = (props) =>{
                     onChange={props.postChange}
                     classext="bg-opaque"
                 placeholder="Main Body (expandable)" />
-                <Button children="Submit" onClick={props.postThings} />
-                <Button children="Cancel" onClick={props.cancelPost} />
+                <Button className="post-sub-btn" children="Submit" onClick={props.postThings} />
+                <Button className="post-can-btn" children="Cancel" onClick={props.cancelPost} />
             </Carded>
           </section>
     );

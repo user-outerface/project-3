@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import TextLay from '../components/SearchForm/TextLay';
 import Button from "../components/Button/Button";
 import Carded from "../components/Carded";
-import Comms from "../components/Comments/Comms"
-// import Saved from "./Posts";
+import Comms from "../components/Comments/Comms";
 import API from "../utils/API";
 import Markdown from "react-markdown";
 import "./pages.css";
@@ -163,8 +162,8 @@ export class Main extends Component {
                       textarea="true"
                       placeholder="Comment (expandable)"
                     name="ediComm" />
-                    <Button children="Submit" onClick={() => this.updateComm(comms._id)} />
-                    <Button children="Cancel" onClick={() => window.location.reload()} />
+                    <Button className="comms-submit"  children="Submit" onClick={() => this.updateComm(comms._id)} />
+                    <Button className="comms-cancel"  children="Cancel" onClick={() => window.location.reload()} />
                 {/* If the state isn't set to allow the comment to be eidited, it gives the basic comment layout */}
                 </div> : <Comms key={comms._id}
                     id={comms._id} 
@@ -173,8 +172,8 @@ export class Main extends Component {
                     deletgo={this.props.user === comms.uId ? "true" : ""}
                     comms={comms.comment}
                   onClickPass={() => this.deleteComm(comms._id, post._id)}>
-                  
-                  {this.props.user === comms.uId && <Button children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
+                  {/* this is how its done... "Craig wright" */}
+                  {this.props.user === comms.uId && <Button attribsext={{"className": "edit-com"}} children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 
@@ -190,7 +189,7 @@ export class Main extends Component {
                   name="comment" />
                 <Button className="sub-btn" children="Submit" onClick={this.commSubmit} />
                 </div>
-              } : null}
+              }
             </section>
           }) : null}
           
@@ -220,7 +219,7 @@ export class Main extends Component {
                 </Comms>
             }) : null}
 
-          {this.props.user && <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
+          {this.props.user && <AnchorTag anchClass="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
         </section>
       </div>
     );

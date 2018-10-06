@@ -1,0 +1,18 @@
+.j-footer{
+    position: relative;
+    opacity: 0.8;
+    background-image: url('https://images.wallpaperscraft.com/image/colorful_background_spots_lines_65584_1920x1080.jpg');
+    border-color: #2b2523;
+    border-radius: 5px;
+    border-style: outset;
+    border-width: 8px;
+    height: 80px;
+    text-align: center;
+    padding: 20px 6px 0 6px;
+    margin: 14px;
+    color: black;
+    text-shadow: .4px .4px #00000070;
+    -webkit-box-shadow:x 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+    box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
+}

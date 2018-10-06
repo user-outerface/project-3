@@ -4,7 +4,7 @@ import './giffy.css';
 const SearchBar = (props) => {
     return (
         <div id="gif-input" className="search">
-            <input onChange={props.onChange} />
+            <input className="input-gif" onChange={props.onChange} />
         </div>
     );
 }

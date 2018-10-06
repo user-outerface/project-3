@@ -36,6 +36,9 @@ export const Nav = props => {
                         Saved
                     </Link>
                 </li>
+                {/* <li className="title-2">
+                    <h2>IntroNerded Forums</h2>
+                </li> */}
                 <li className="ml-auto mr-1 d-flex align-items-center">
                     {props.login !== "" ? <DropAc logout={props.logout} login={props.login} /> : (
                         <div>
@@ -46,7 +49,7 @@ export const Nav = props => {
                                 classext="d-inline"
                             >
                                     Login
-                            </AnchorTag> or <AnchorTag 
+                            </AnchorTag> <span className="or">or</span> <AnchorTag 
                                 hrefless="true"     
                                 data-toggle="modal"     
                                 data-target="#modalSignUp"

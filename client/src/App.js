@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Nav, NavHead, BuildaNav } from "./components/Nav";
 import { Main, NewPost} from "./pages"
+import Footer from "./components/Footer/Footer";
 import API from "./utils/API";
 import './App.css';
 
@@ -181,13 +182,6 @@ class App extends Component {
     window.location = pathing;
   };
 
-
-
-
-
-
-  
-
   render() {
     const postPass = window.location.pathname.split("/");
     let postSwitch = null;
@@ -227,7 +221,9 @@ class App extends Component {
             sName="searchQ"
             onChange={this.handleTermChange} 
           gifs={this.state.gifs[0]} />
-          <h3 className="my-1 title">Welcome to Forum's General {this.props.dbHit}</h3>
+          <div className="title-div">
+              <h1 className="title"> IntroNerded Forum's</h1>
+          </div>
           <Nav onChange={this.changer} submitSi={this.makeUser} submitLo={this.logUser} login={this.state.uNam} logout={this.userOut} />
           <BuildaNav pather={this.state.path} pOnClick={(event) => this.changeLocs(event)} />
           <Switch>
@@ -295,6 +291,10 @@ class App extends Component {
             <Route render={(props) => <Main user={this.state.uId} username={this.state.uNam} />} />
           </Switch>
         </div>
+
+        <Footer classext="foot">
+          2018 &copy; Copywrite - Craig Wright | Jared Bryce | Ronnie Bario	
+        </Footer>
         </section>
       </Router>
     );
