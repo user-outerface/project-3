@@ -1,11 +1,11 @@
 .image-gif{
-    max-width: 155px;
-    max-height: 160px;
-    border-radius: 100px;
-    margin-top: 90px;
+    width: 135px;
+    height: 135px;
+    border-radius: 50%;
+    margin-top: 65px;
      border: 5px solid rgba(92, 248, 183, 0.685);
     border-width: 7px;
-    margin-left: -7px;
+    margin-left: -3px;
 }
 
 #gif-input input {
