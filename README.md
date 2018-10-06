@@ -1,8 +1,9 @@
 # User-Outerface
-Francisco Arechiga
-Ronnie Barrio
-Jared Bryce
-Craig Wright
+
+* Francisco Arechiga
+* Ronnie Barrio
+* Jared Bryce
+* Craig Wright
 
 # Link to Project
 
