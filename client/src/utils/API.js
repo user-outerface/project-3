@@ -3,7 +3,7 @@ import axios from "axios";
 export default {
 
     handleTermChange(term) {
-        return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&rating=pg-13`);
+        return axios.get(`https://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&rating=pg-13`);
     },
 
     getPosts: function(){
