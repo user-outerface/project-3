@@ -16,7 +16,7 @@ export default {
         return axios.get("/api/post");
     },
 
-    getUserPosts: function(id){
+    getUserPosts: function(){
         const query = {
             uId: "true"
         };
@@ -67,15 +67,14 @@ export default {
         return axios.get("/api/comm");
     },
 
-    getUserComms: function(id){
+    getUserComms: function(){
         const query = {
-            uId: id
+            uId: "true"
         };
         return axios.get("/api/comm", {params: query})
     },
     
     saveComm: function(commData){
-        console.log(commData);
         return axios.post("/api/comm", commData);
     },
 

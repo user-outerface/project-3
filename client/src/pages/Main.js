@@ -127,7 +127,7 @@ export class Main extends Component {
           {/*This maps all posts within a given genre*/}
           {/*The anchor tag will need to change if there 
           are deeper url paths, for now it should be fine*/}
-          {((res !== undefined) && (this.props.nonSpec)) ? res[0] && res[0].map(posts => {
+          {((res !== undefined) && (this.props.nonSpec === "true")) ? res[0] && res[0].map(posts => {
             if(this.props.uList && posts.deleted === "true"){return null};
             return (<section key={posts._id}>
               <Carded 
@@ -178,7 +178,7 @@ export class Main extends Component {
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 
-              {this.props.user && <AnchorTag children="New Comment" onClick={this.showField} />}
+              {this.props.user && this.props.hitType !== "user-comms" ? <AnchorTag children="New Comment" onClick={this.showField} /> : null}
               {this.state.comGo === "true" &&
                 <div>
                   <TextLay hclext="ml-2"
@@ -190,11 +190,35 @@ export class Main extends Component {
                   name="comment" />
                 <Button className="sub-btn" children="Submit" onClick={this.commSubmit} />
                 </div>
-              }
+              } : null}
             </section>
           }) : null}
           
           {/* End mapping of post */}
+          {/* Maps User Comments*/}
+          {this.props.hitType === "user-comms" && this.props.user !== "" ?
+            res && res[0].map(comments =>{
+              return(this.state.ediGo === comments._id) ?
+                <div key={comments._id}>
+                  <TextLay hclext="ml-2"
+                    value={this.state.ediComm}
+                    onChange={this.commChange}
+                    classext="bg-opaque"
+                    textarea="true"
+                    placeHolder="Comment (expandable)"
+                  name="ediComm" />
+                  <Button children="Submit" onClick={() => this.updateComm(comments._id)} />
+                  <Button children="Cancel" onClick={() => window.location.reload()} />
+                </div> : <Comms key={comments._id}
+                  id={comments._id}
+                  edigo={this.state.ediGo}
+                  user={this.props.user}
+                  deletgo={this.props.user === comments.uId ? "true" : ""}
+                  comms={comments.comment}
+                  onClickPass={() => this.deleteComm(comments._id, comments.post)}>
+                    {this.props.user === comments.uId && <Button children="edit" onClick={() => this.ediGoChange(comments._id, comments.comment)} />}
+                </Comms>
+            }) : null}
 
           {this.props.user && <AnchorTag className="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
         </section>

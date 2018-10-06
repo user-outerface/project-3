@@ -4,11 +4,9 @@ const mongoose = require("mongoose");
 module.exports = {
 
     findAll: function(req, res){
-        console.log(req.query);
         if(req.query.uId === "true"){
             req.query.uId = req.session.userId
         };
-        console.log(req.query.uId);
         db.Post
             .find(req.query)
             .sort({dateAdded: -1})
