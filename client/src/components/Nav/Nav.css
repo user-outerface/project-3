@@ -21,6 +21,20 @@
     box-shadow: 4px 8px 19px 6px rgba(0, 0, 0, 0.75);
 }
 
+/* .food-img{
+    background: url("../../images/Sakura.png");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    color: rgba(51, 51, 51, 0);
+    height: 150%;
+    width: 1700%;
+}; */
+
+.food-img{
+    max-height: 200px;
+}
+
 .bot-nav {
     background-color: #e97effad;
     border-color: #2b2523;

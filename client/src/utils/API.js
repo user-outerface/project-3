@@ -1,5 +1,3 @@
-// this is good boiler. We can use this for reference for later
-
 import axios from "axios";
 
 export default {
@@ -11,11 +9,18 @@ export default {
     // },
 
     handleTermChange(term) {
-        return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&limit=1`);
+        return axios.get(`http://api.giphy.com/v1/gifs/search?q=${term.replace(/\s/g, '+')}&api_key=dc6zaTOxFJmzC&rating=pg-13`);
     },
 
     getPosts: function(){
         return axios.get("/api/post");
+    },
+
+    getUserPosts: function(){
+        const query = {
+            uId: "true"
+        };
+        return axios.get("/api/post", {params: query});
     },
 
     getSomePosts: function(genSwitch){
@@ -61,6 +66,13 @@ export default {
     getComms: function(){
         return axios.get("/api/comm");
     },
+
+    getUserComms: function(){
+        const query = {
+            uId: "true"
+        };
+        return axios.get("/api/comm", {params: query})
+    },
     
     saveComm: function(commData){
         return axios.post("/api/comm", commData);
@@ -73,7 +85,24 @@ export default {
     deleteComm: function(comser){
         return axios.delete("/api/comm/" + comser.postId + "/" + comser.commId);
     },
+
     deleteManyComm: function(genreid){
         return axios.delete("/api/comm/many-del/" + genreid)
+    },
+
+    getCreds: function(){
+        return axios.get("/api/user/creds");
+    },
+
+    login: function(creds){
+        return axios.post("/api/user/login", creds);
+    },
+
+    signup: function(creds){
+        return axios.post("/api/user", creds);
+    },
+
+    logout: function(){
+        return axios.get("/api/user/out");
     }
 };

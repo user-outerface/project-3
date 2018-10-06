@@ -4,6 +4,9 @@ const mongoose = require("mongoose");
 module.exports = {
 
     findAll: function(req, res){
+        if(req.query.uId === "true"){
+            req.query.uId = req.session.userId
+        };
         db.Post
             .find(req.query)
             .sort({dateAdded: -1})
@@ -61,7 +64,11 @@ module.exports = {
         db.Post
             .findOneAndUpdate(
                 {_id: req.body.id},
-                {body: req.body.body}
+                {
+                    body: req.body.body,
+                    username: req.body.username,
+                    deleted: req.body.deleted
+                }
             ).then(dbModel =>{
                 res.json(dbModel);
             })

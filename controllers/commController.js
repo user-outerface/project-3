@@ -3,6 +3,9 @@ const mongoose = require("mongoose");
 
 module.exports = {
     findAll: function(req, res) {
+        if(req.query.uId === "true"){
+            req.query.uId = req.session.userId
+        };
         db.Comments
           .find(req.query)
           .sort({ dateAdded: -1 })

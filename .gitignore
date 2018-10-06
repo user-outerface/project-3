@@ -8,6 +8,7 @@
 /coverage
 
 # production
+/client/build
 /build
 
 # misc

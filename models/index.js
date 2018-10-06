@@ -1,5 +1,6 @@
 module.exports = {
   Genre: require("./genre"),
   Comments: require("./comment"),
-  Post: require("./post")
+  Post: require("./post"),
+  Users: require("./users")
 };

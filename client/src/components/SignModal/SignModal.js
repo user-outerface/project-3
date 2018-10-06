@@ -1,5 +1,6 @@
 import React from "react";
 import TextIn from "../SearchForm/TextIn";
+import Button from "../Button/Button";
 import "./SignModal.css";
 
 const SignModal = props => {
@@ -9,11 +10,11 @@ const SignModal = props => {
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
         modMessage = "Welcome Back, Enjoy Your Stay..."
-        modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
         modMessage = "Welcome to IntroNerded Forums!";
-        modInput = [<TextIn key="Username/Email" placeholder="Username/Email" />, <TextIn key="Password" placeholder="Password" />];
+        modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else {
         modSignIn = props.modSignIn ? props.modSignIn : null;
         modMessage = props.modMessage ? props.modMessage : null;
@@ -31,8 +32,8 @@ const SignModal = props => {
                         {modInput}
                     </div>
                     <div className="modal-footer">
-                        <button type="button" className="sub-mod-btn">Submit</button>
-                        <button type="button" className="close-mod-btn" data-dismiss="modal">Close</button>
+                        <Button className="sub-mod-btn" onClick={props.onClick} >Submit</Button>
+                        <Button type="button" className="close-mod-btn" data-dismiss="modal">Close</Button>
                     </div>
                 </div>
             </div>

@@ -5,6 +5,9 @@ const postSchema = new Schema({
   title: { type: String, required: true },
   body: { type: String, required: true },
   genre: {type: String, required: true},
+  uId: {type: String, required: true},
+  username: {type: String, required: true},
+  deleted: {type: String, default: "false"},
   comment: [
     {
       type: Schema.Types.ObjectId,

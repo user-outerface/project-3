@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import TextLay from '../components/SearchForm/TextLay';
 import Button from "../components/Button/Button";
 import Carded from "../components/Carded";
-import Comms from "../components/Comments/Comms"
-// import Saved from "./Posts";
+import Comms from "../components/Comments/Comms";
 import API from "../utils/API";
+import Markdown from "react-markdown";
 import "./pages.css";
 import { AnchorTag } from '../components/AnchorTag/AnchorTag';
 
@@ -61,11 +61,15 @@ export class Main extends Component {
     for(let i = 0; i < idPeek.length; i++){
       if(idPeek[i].includes("tpm&n=")){
         idPass = idPeek[i].substr(idPeek[i].indexOf("=") + 1);
-      }
+      };
     };
     const commPass = {
-      comment: {comment: this.state.comment},
-      id: idPass
+      comment: {
+        comment: this.state.comment,
+        uId: this.props.user,
+        username: this.props.username
+      },
+      id: idPass,
     };
     API.saveComm(commPass).then(res =>{
       window.location.reload();
@@ -98,7 +102,9 @@ export class Main extends Component {
   deleterPost = (nId) =>{
     API.delUpper({
       id: nId,
-      body: "[deleted]"
+      body: "[deleted]",
+      username: "[deleted]",
+      deleted: "true"
     }).then(window.location.reload());
   };
 
@@ -120,12 +126,15 @@ export class Main extends Component {
           {/*This maps all posts within a given genre*/}
           {/*The anchor tag will need to change if there 
           are deeper url paths, for now it should be fine*/}
-          {((res !== undefined) && (this.props.nonSpec)) ? res[0] && res[0].map(posts => {
-            return <Carded 
-              key={posts._id}
-              className="carded-opaque text-white text-left rounded-0"
-              postname={posts.title ? <AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
-            children={posts.body ? posts.body : null } />
+          {((res !== undefined) && (this.props.nonSpec === "true")) ? res[0] && res[0].map(posts => {
+            if(this.props.uList && posts.deleted === "true"){return null};
+            return (<section key={posts._id}>
+              <Carded 
+                className="carded-opaque text-white text-left rounded-0"
+            postname={posts.title ? <Markdown source={`[${posts.title}](/posts/t&gq=${posts.genre}/tpm&n=${posts._id})`} /> /*<AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> */ : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+              children={posts.body ? posts.body : null } />
+              {this.props.hitType === "user-posts" && <AnchorTag onClick={() =>{this.deleterPost(posts._id)}} children="Delete" />}
+            </section>)
           }) : null}
           {/*End mapping of all posts within a given genre*/}
 
@@ -134,12 +143,12 @@ export class Main extends Component {
             return <section key={post._id}>
               <Carded 
                 className="carded-opaque text-white text-left rounded-0"
-                postname={post.title}
+                postname={<Markdown source={post.title} />}
                 extchildren={<div>
-                  <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />
-                  <AnchorTag onClick={() => { this.deleterPost(post._id) }} anchClass="del-btn" children="Delete" />
+                  {this.props.user === post.uId && <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchClass="edit-btn" children="Edit" editable="true" />}
+                  {this.props.user === post.uId && <AnchorTag onClick={() =>{this.deleterPost(post._id)}} anchClass="del-btn" children="Delete" />}
                 </div>}
-              children={post.body ? post.body : null } />
+              children={post.body ? <Markdown source={post.body} /> : null } />
 
               {/*The Below is responsible for mapping the comments 
               And swapping between editing or viewing */}
@@ -158,18 +167,17 @@ export class Main extends Component {
                 {/* If the state isn't set to allow the comment to be eidited, it gives the basic comment layout */}
                 </div> : <Comms key={comms._id}
                     id={comms._id} 
-                    edigo={this.state.ediGo} 
-                  onClickPass={() => this.deleteComm(comms._id, post._id)}> 
-                  <div class="comment-text">
-                    Comment:
-                  </div>
-                  {comms.comment}
+                    edigo={this.state.ediGo}
+                    user={this.props.user}
+                    deletgo={this.props.user === comms.uId ? "true" : ""}
+                    comms={comms.comment}
+                  onClickPass={() => this.deleteComm(comms._id, post._id)}>
                   {/* this is how its done... "Craig wright" */}
-                  <Button attribsext={{"className": "edit-com"}} children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />
+                  {this.props.user === comms.uId && <Button attribsext={{"className": "edit-com"}} children="edit" onClick={() => this.ediGoChange(comms._id, comms.comment)} />}
                 </Comms>)}) : null}
               {/* End mapping of comments */}
 
-              <AnchorTag className="new-com" children="New Comment" onClick={this.showField} />
+              {this.props.user && this.props.hitType !== "user-comms" ? <AnchorTag children="New Comment" onClick={this.showField} /> : null}
               {this.state.comGo === "true" &&
                 <div>
                   <TextLay hclext="ml-2"
@@ -181,13 +189,37 @@ export class Main extends Component {
                   name="comment" />
                 <Button className="sub-btn" children="Submit" onClick={this.commSubmit} />
                 </div>
-              }
+              } : null}
             </section>
           }) : null}
           
           {/* End mapping of post */}
+          {/* Maps User Comments*/}
+          {this.props.hitType === "user-comms" && this.props.user !== "" ?
+            res && res[0].map(comments =>{
+              return(this.state.ediGo === comments._id) ?
+                <div key={comments._id}>
+                  <TextLay hclext="ml-2"
+                    value={this.state.ediComm}
+                    onChange={this.commChange}
+                    classext="bg-opaque"
+                    textarea="true"
+                    placeHolder="Comment (expandable)"
+                  name="ediComm" />
+                  <Button children="Submit" onClick={() => this.updateComm(comments._id)} />
+                  <Button children="Cancel" onClick={() => window.location.reload()} />
+                </div> : <Comms key={comments._id}
+                  id={comments._id}
+                  edigo={this.state.ediGo}
+                  user={this.props.user}
+                  deletgo={this.props.user === comments.uId ? "true" : ""}
+                  comms={comments.comment}
+                  onClickPass={() => this.deleteComm(comments._id, comments.post)}>
+                    {this.props.user === comments.uId && <Button children="edit" onClick={() => this.ediGoChange(comments._id, comments.comment)} />}
+                </Comms>
+            }) : null}
 
-          <AnchorTag anchClass="new-pos" href={"/new-post/" + genreGiver} children="New Post" />
+          {this.props.user && <AnchorTag anchClass="new-pos" href={"/new-post/" + genreGiver} children="New Post" />}
         </section>
       </div>
     );
