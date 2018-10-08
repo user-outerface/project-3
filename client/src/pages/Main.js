@@ -137,7 +137,7 @@ export class Main extends Component {
                 genrelay={this.props.hitType === "genres" ? "Genre" : undefined}
                 cardname={this.props.hitType === "genres" ? "Genre" : ""}
                 className="carded-opaque text-white text-left"
-                postname={posts.title ? <Markdown source={`[${posts.title}](/posts/t&gq=${posts.genre}/tpm&n=${posts._id})`} /> /*<AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> */ : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
+                postname={posts.title ? <Markdown source={`[${posts.title}](/posts/t&gq=${posts.genre.replace(/\s+/g,"%20")}/tpm&n=${posts._id})`} /> /*<AnchorTag href={`/posts/t&gq=${posts.genre}/tpm&n=${posts._id}`} children={posts.title} /> */ : <AnchorTag href={"./posts/t&gq=" + posts.genre} children={posts.genre} /> }
               children={posts.username ? `By "${posts.username}", Posted: ${moment(posts.dateAdded).format("MMMM Do YYYY, h:mm a")}` : null } />
               {this.props.hitType === "user-posts" && <div>
                 <AnchorTag href={"/edit-post/tbph&idn" + posts._id} classext="edit-btn" children="Edit" editable="true" />
