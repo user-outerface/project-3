@@ -19,7 +19,7 @@ export const BuildaNav = props => {
                             break;
                         case props.pather[i].includes("t&gq="):
                             newBuild = props.pather.slice(0, i + 1).join("/");
-                            pathNamer = props.pather[i].substr(props.pather[i].indexOf("=") + 1);
+                            pathNamer = props.pather[i].substr(props.pather[i].indexOf("=") + 1).replace(/%20/g, " ");
                             break;
                         case props.pather[i] === "posts":
                             pathNamer = "All";
