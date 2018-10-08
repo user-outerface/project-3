@@ -133,7 +133,7 @@ export class Main extends Component {
             return (<section key={posts._id}>
               <Carded 
                 id={this.props.hitType === "genres" ? "genre-" + posts._id : ""}
-                singlelady
+                singlelady="true"
                 genrelay={this.props.hitType === "genres" ? "Genre" : undefined}
                 cardname={this.props.hitType === "genres" ? "Genre" : ""}
                 className="carded-opaque text-white text-left"
@@ -157,7 +157,7 @@ export class Main extends Component {
                   <AnchorTag href={"/edit-post/tbph&idn" + post._id} anchclass="edit-btn" classext="edit-btn" children="Edit" editable="true" />
                   <AnchorTag onClick={() =>{this.deleterPost(post._id)}} anchclass="del-btn" children="Delete" />
                 </div> : null}
-                singlelady
+                singlelady="true"
               children={post.body ? (<section>
                 <Markdown source={post.body} /> 
                 <div>By "{post.username}", Posted: {moment(post.dateAdded).format("MMMM Do YYYY, h:mm a")}</div>
