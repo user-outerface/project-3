@@ -10,11 +10,11 @@ const SignModal = props => {
     if(props.modId === "modalLogIn"){
         modSignIn = "Login";
         modMessage = "Welcome Back, Enjoy Your Stay..."
-        modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
+        modInput = [<TextIn key="Username" name="user" onChange={props.onChange} placeholder="Username" />, <TextIn key="Password" type="passIn" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else if (props.modId === "modalSignUp"){
         modSignIn = "Sign Up!"
         modMessage = "Welcome to IntroNerded Forums!";
-        modInput = [<TextIn key="Username/Email" name="user" onChange={props.onChange} placeholder="Username/Email" />, <TextIn key="Password" name="pwd" onChange={props.onChange} placeholder="Password" />];
+        modInput = [<TextIn key="Username" name="user" onChange={props.onChange} placeholder="Username" />, <TextIn key="Password" type="passIn" name="pwd" onChange={props.onChange} placeholder="Password" />];
     } else {
         modSignIn = props.modSignIn ? props.modSignIn : null;
         modMessage = props.modMessage ? props.modMessage : null;
