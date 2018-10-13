@@ -19,7 +19,7 @@ export class NewPost extends Component {
     let genreGiver;
     for(let i = 0; i < postPass.length; i++){
       if(postPass[i].includes("t&gq=")){
-        genreGiver = postPass[i].substr(postPass[i].indexOf("=") + 1);
+        genreGiver = postPass[i].substr(postPass[i].indexOf("=") + 1).replace(/%20/g, " ");
       } else if (genreGiver === undefined){
         genreGiver = "";
       };
@@ -64,7 +64,7 @@ export class NewPost extends Component {
       username: this.props.username
     }).then(res => {
       const {genre, _id} = res.data;
-      window.location = `/posts/t&gq=${genre}/tpm&n=${_id}`;
+      window.location = `/posts/t&gq=${genre.replace(/\s+/g,"%20")}/tpm&n=${_id}`;
     });
   };
 
@@ -77,7 +77,7 @@ export class NewPost extends Component {
       id: patid
     }).then(res => {
       const {genre, _id} = res.data;
-      window.location = `/posts/t&gq=${genre}/tpm&n=${_id}`;
+      window.location = `/posts/t&gq=${genre.replace(/\s+/g,"%20")}/tpm&n=${_id}`;
     });
   }
 
