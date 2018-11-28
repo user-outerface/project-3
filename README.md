@@ -9,6 +9,10 @@
 
 [Link](https://fathomless-lake-80884.herokuapp.com/)
 
+# Security Update
+
+There has been a backdoor introduced to a widely used npm. Our site has been affected due to boiler plate code using several dependencies. You will have to pull this latest push to make your life a lot easier with merges. The yarn lock file will be changed.
+
 # New Technologies used
 
 * react-markdown
